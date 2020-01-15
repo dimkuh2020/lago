@@ -19,30 +19,26 @@ class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    public $css = [
-        'css/animate.css',
-        //'css/bootstrap.min.css',
-        'css/classy-nav.min.css',
-        'css/core-style.css',
-        //'css/core-style.css.map',
-        'css/font-awesome.min.css',
-        'css/jquery-ui.min.css',
-        'css/magnific-popup.css',
-        'css/nice-select.css',
-        'css/owl.carousel.css',
+    public $css = [        
+        'css/bootstrap.css',
+        'css/flexslider.css',
+        'css/memenu.css',
+        'css/style.css',         
         'css/site.css',
     ];
-    public $js = [
-        'js/active.js',
-        //'js/bootstrap.min.js',
-        'js/classy-nav.min.js',
-        'js/map-active.js',
-        'js/plugins.js',
-        'js/popper.min.js',
 
+    public $js = [
+        'js/jquery.flexslider.js',
+        'js/jquery.min.js',
+        'js/main.js',
+        'js/memenu.js',
+        'js/responsiveslides.min.js',
+        'js/simpleCart.min.js',  
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+       'yii\web\YiiAsset',
+       'yii\bootstrap\BootstrapPluginAsset',
     ];
+
+    public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
 }

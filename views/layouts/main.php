@@ -22,187 +22,283 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 </head>
 <body>
 <?php $this->beginBody() ?>
 
-<!-- ##### Header Area Start ##### -->
-<header class="header_area">
-    <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
-        <!-- Classy Menu -->
-        <nav class="classy-navbar" id="essenceNav">
-            <!-- Logo -->
-            <a class="nav-brand" href="index.html"><img src="/img/core-img/logo.png" alt=""></a>
-            <!-- Navbar Toggler -->
-            <div class="classy-navbar-toggler">
-                <span class="navbarToggler"><span></span><span></span><span></span></span>
-            </div>
-            <!-- Menu -->
-            <div class="classy-menu">
-                <!-- close btn -->
-                <div class="classycloseIcon">
-                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                </div>
-                <!-- Nav Start -->
-                <div class="classynav">
-                    <ul>
-                        <li><a href="#">Shop</a>
-                            <div class="megamenu">
-                                <ul class="single-mega cn-col-4">
-                                    <li class="title">Women's Collection</li>
-                                    <li><a href="shop.html">Dresses</a></li>
-                                    <li><a href="shop.html">Blouses &amp; Shirts</a></li>
-                                    <li><a href="shop.html">T-shirts</a></li>
-                                    <li><a href="shop.html">Rompers</a></li>
-                                    <li><a href="shop.html">Bras &amp; Panties</a></li>
-                                </ul>
-                                <ul class="single-mega cn-col-4">
-                                    <li class="title">Men's Collection</li>
-                                    <li><a href="shop.html">T-Shirts</a></li>
-                                    <li><a href="shop.html">Polo</a></li>
-                                    <li><a href="shop.html">Shirts</a></li>
-                                    <li><a href="shop.html">Jackets</a></li>
-                                    <li><a href="shop.html">Trench</a></li>
-                                </ul>
-                                <ul class="single-mega cn-col-4">
-                                    <li class="title">Kid's Collection</li>
-                                    <li><a href="shop.html">Dresses</a></li>
-                                    <li><a href="shop.html">Shirts</a></li>
-                                    <li><a href="shop.html">T-shirts</a></li>
-                                    <li><a href="shop.html">Jackets</a></li>
-                                    <li><a href="shop.html">Trench</a></li>
-                                </ul>
-                                <div class="single-mega cn-col-4">
-                                    <img src="/img/bg-img/bg-6.jpg" alt="">
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="single-product-details.html">Product Details</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="single-blog.html">Single Blog</a></li>
-                                <li><a href="regular-page.html">Regular Page</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <!-- Nav End -->
-            </div>
-        </nav>
+<!--header-->
+<div class="header">
+	<div class="header-top">
+		<div class="container">
+			<div class="search">
+					<form>
+						<input type="text" value="Search " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+						<input type="submit" value="Go">
+					</form>
+			</div>
+			<div class="header-left">		
+					<ul>
+						<li ><a href="login.html"  >Login</a></li>
+						<li><a  href="register.html"  >Register</a></li>
 
-        <!-- Header Meta Data -->
-        <div class="header-meta d-flex clearfix justify-content-end">
-            <!-- Search Area -->
-            <div class="search-area">
-                <form action="#" method="post">
-                    <input type="search" name="search" id="headerSearch" placeholder="Type for search">
-                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </form>
-            </div>
-            <!-- Favourite Area -->
-            <div class="favourite-area">
-                <a href="#"><img src="/img/core-img/heart.svg" alt=""></a>
-            </div>
-            <!-- User Login Info -->
-            <div class="user-login-info">
-                <a href="#"><img src="/img/core-img/user.svg" alt=""></a>
-            </div>
-            <!-- Cart Area -->
-            <div class="cart-area">
-                <a href="#" id="essenceCartBtn"><img src="/img/core-img/bag.svg" alt=""> <span>3</span></a>
-            </div>
-        </div>
+					</ul>
+					<div class="cart box_1">
+						<a href="checkout.html">
+						<h3> <div class="total">
+							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+							<img src="images/cart.png" alt=""/></h3>
+						</a>
+						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
-    </div>
-</header>
-<!-- ##### Header Area End ##### -->
-<?=$content?>
+					</div>
+					<div class="clearfix"> </div>
+			</div>
+				<div class="clearfix"> </div>
+		</div>
+		</div>
+		<div class="container">
+			<div class="head-top">
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" alt=""></a>	
+				</div>
+		  <div class=" h_menu4">
+				<ul class="memenu skyblue">
+					  <li class="active grid"><a class="color8" href="index.html">Home</a></li>	
+				      <li><a class="color1" href="#">Men</a>
+				      	<div class="mepanel">
+						<div class="row">
+							<div class="col1">
+								<div class="h_nav">
+									<ul>
+										<li><a href="products.html">Accessories</a></li>
+										<li><a href="products.html">Bags</a></li>
+										<li><a href="products.html">Caps & Hats</a></li>
+										<li><a href="products.html">Hoodies & Sweatshirts</a></li>
+										<li><a href="products.html">Jackets & Coats</a></li>
+										<li><a href="products.html">Jeans</a></li>
+										<li><a href="products.html">Jewellery</a></li>
+										<li><a href="products.html">Jumpers & Cardigans</a></li>
+										<li><a href="products.html">Leather Jackets</a></li>
+										<li><a href="products.html">Long Sleeve T-Shirts</a></li>
+										<li><a href="products.html">Loungewear</a></li>
+									</ul>	
+								</div>							
+							</div>
+							<div class="col1">
+								<div class="h_nav">
+									<ul>
+										<li><a href="products.html">Shirts</a></li>
+										<li><a href="products.html">Shoes, Boots & Trainers</a></li>
+										<li><a href="products.html">Shorts</a></li>
+										<li><a href="products.html">Suits & Blazers</a></li>
+										<li><a href="products.html">Sunglasses</a></li>
+										<li><a href="products.html">Sweatpants</a></li>
+										<li><a href="products.html">Swimwear</a></li>
+										<li><a href="products.html">Trousers & Chinos</a></li>
+										<li><a href="products.html">T-Shirts</a></li>
+										<li><a href="products.html">Underwear & Socks</a></li>
+										<li><a href="products.html">Vests</a></li>
+									</ul>	
+								</div>							
+							</div>
+							<div class="col1">
+								<div class="h_nav">
+									<h4>Popular Brands</h4>
+									<ul>
+										<li><a href="products.html">Levis</a></li>
+										<li><a href="products.html">Persol</a></li>
+										<li><a href="products.html">Nike</a></li>
+										<li><a href="products.html">Edwin</a></li>
+										<li><a href="products.html">New Balance</a></li>
+										<li><a href="products.html">Jack & Jones</a></li>
+										<li><a href="products.html">Paul Smith</a></li>
+										<li><a href="products.html">Ray-Ban</a></li>
+										<li><a href="products.html">Wood Wood</a></li>
+									</ul>	
+								</div>												
+							</div>
+						  </div>
+						</div>
+					</li>
+				    <li class="grid"><a class="color2" href="#">	Women</a>
+					  	<div class="mepanel">
+						<div class="row">
+							<div class="col1">
+								<div class="h_nav">
+									<ul>
+										<li><a href="products.html">Accessories</a></li>
+										<li><a href="products.html">Bags</a></li>
+										<li><a href="products.html">Caps & Hats</a></li>
+										<li><a href="products.html">Hoodies & Sweatshirts</a></li>
+										<li><a href="products.html">Jackets & Coats</a></li>
+										<li><a href="products.html">Jeans</a></li>
+										<li><a href="products.html">Jewellery</a></li>
+										<li><a href="products.html">Jumpers & Cardigans</a></li>
+										<li><a href="products.html">Leather Jackets</a></li>
+										<li><a href="products.html">Long Sleeve T-Shirts</a></li>
+										<li><a href="products.html">Loungewear</a></li>
+									</ul>	
+								</div>							
+							</div>
+							<div class="col1">
+								<div class="h_nav">
+									<ul>
+										<li><a href="products.html">Shirts</a></li>
+										<li><a href="products.html">Shoes, Boots & Trainers</a></li>
+										<li><a href="products.html">Shorts</a></li>
+										<li><a href="products.html">Suits & Blazers</a></li>
+										<li><a href="products.html">Sunglasses</a></li>
+										<li><a href="products.html">Sweatpants</a></li>
+										<li><a href="products.html">Swimwear</a></li>
+										<li><a href="products.html">Trousers & Chinos</a></li>
+										<li><a href="products.html">T-Shirts</a></li>
+										<li><a href="products.html">Underwear & Socks</a></li>
+										<li><a href="products.html">Vests</a></li>
+									</ul>	
+								</div>							
+							</div>
+							<div class="col1">
+								<div class="h_nav">
+									<h4>Popular Brands</h4>
+									<ul>
+										<li><a href="products.html">Levis</a></li>
+										<li><a href="products.html">Persol</a></li>
+										<li><a href="products.html">Nike</a></li>
+										<li><a href="products.html">Edwin</a></li>
+										<li><a href="products.html">New Balance</a></li>
+										<li><a href="products.html">Jack & Jones</a></li>
+										<li><a href="products.html">Paul Smith</a></li>
+										<li><a href="products.html">Ray-Ban</a></li>
+										<li><a href="products.html">Wood Wood</a></li>
+									</ul>	
+								</div>												
+							</div>
+						  </div>
+						</div>
+			    </li>
+				<li><a class="color4" href="blog.html">Blog</a></li>				
+				<li><a class="color6" href="contact.html">Conact</a></li>
+			  </ul> 
+			</div>
+				
+				<div class="clearfix"> </div>
+		</div>
+		</div>
 
-<!-- ##### Footer Area Start ##### -->
-<footer class="footer_area clearfix">
-        <div class="container">
-            <div class="row">
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area d-flex mb-30">
-                        <!-- Logo -->
-                        <div class="footer-logo mr-50">
-                            <a href="#"><img src="/img/core-img/logo2.png" alt=""></a>
-                        </div>
-                        <!-- Footer Menu -->
-                        <div class="footer_menu">
-                            <ul>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area mb-30">
-                        <ul class="footer_widget_menu">
-                            <li><a href="#">Order Status</a></li>
-                            <li><a href="#">Payment Options</a></li>
-                            <li><a href="#">Shipping and Delivery</a></li>
-                            <li><a href="#">Guides</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+	</div>
 
-            <div class="row align-items-end">
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area">
-                        <div class="footer_heading mb-30">
-                            <h6>Subscribe</h6>
-                        </div>
-                        <div class="subscribtion_form">
-                            <form action="#" method="post">
-                                <input type="email" name="mail" class="mail" placeholder="Your email here">
-                                <button type="submit" class="submit"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area">
-                        <div class="footer_social_area">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	<div class="banner">
+		<div class="container">
+			  <script src="js/responsiveslides.min.js"></script>
+  <script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script>
+			<div  id="top" class="callbacks_container">
+			<ul class="rslides" id="slider">
+			    <li>
+					
+						<div class="banner-text">
+							<h3>Lorem Ipsum is not simply dummy  </h3>
+						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
+						<a href="single.html">Learn More</a>
+						</div>
+				
+				</li>
+				<li>
+					
+						<div class="banner-text">
+							<h3>There are many variations </h3>
+						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
+												<a href="single.html">Learn More</a>
 
-<div class="row mt-5">
-                <div class="col-md-12 text-center">
-                    <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
-                </div>
-            </div>
+						</div>
+					
+				</li>
+				<li>
+						<div class="banner-text">
+							<h3>Sed ut perspiciatis unde omnis</h3>
+						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
+								<a href="single.html">Learn More</a>
 
-        </div>
-    </footer>
-    <!-- ##### Footer Area End ##### -->
+						</div>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	</div>
+    <?=$content?>
+	<div class="content-bottom">
+		<ul>
+			<li><a href="#"><img class="img-responsive" src="images/lo.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="images/lo1.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="images/lo2.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="images/lo3.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="images/lo4.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="images/lo5.png" alt=""></a></li>
+		<div class="clearfix"> </div>
+		</ul>
+	</div>
+</div>
+<div class="footer">
+				<div class="container">
+			<div class="footer-top-at">
+			
+				<div class="col-md-4 amet-sed">
+				<h4>MORE INFO</h4>
+				<ul class="nav-bottom">
+						<li><a href="#">How to order</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="contact.html">Location</a></li>
+						<li><a href="#">Shipping</a></li>
+						<li><a href="#">Membership</a></li>	
+					</ul>	
+				</div>
+				<div class="col-md-4 amet-sed ">
+				<h4>CONTACT US</h4>
+				
+					<p>
+Contrary to popular belief</p>
+					<p>The standard chunk</p>
+					<p>office:  +12 34 995 0792</p>
+					<ul class="social">
+						<li><a href="#"><i> </i></a></li>						
+						<li><a href="#"><i class="twitter"> </i></a></li>
+						<li><a href="#"><i class="rss"> </i></a></li>
+						<li><a href="#"><i class="gmail"> </i></a></li>
+						
+					</ul>
+				</div>
+				<div class="col-md-4 amet-sed">
+					<h4>Newsletter</h4>
+					<p>Sign Up to get all news update
+and promo</p>
+					<form>
+						<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+						<input type="submit" value="Sign up">
+					</form>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="footer-class">
+		<p >© 2015 New store All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+		</div>
+		</div>
 
 
 <?php $this->endBody() ?>
