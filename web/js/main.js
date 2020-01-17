@@ -1,4 +1,18 @@
+
+
 jQuery(document).ready(function($){
+	$(".memenu").memenu(); // меню в моб
+	
+	$(function () { // слайдер надписей (в будущем можно поменять на карусель)
+		$("#slider").responsiveSlides({
+		auto: true,
+		nav: true,
+		speed: 500,
+		namespace: "callbacks",
+		pager: true,
+		});
+	});
+
 	var tabItems = $('.cd-tabs-navigation a'),
 		tabContentWrapper = $('.cd-tabs-content');
 
