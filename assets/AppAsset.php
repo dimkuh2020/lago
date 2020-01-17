@@ -20,16 +20,16 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [        
-        'css/bootstrap.css',
+        //'css/bootstrap.css',
         'css/flexslider.css',
         'css/memenu.css',
         'css/style.css',         
-        'css/site.css',
+        //'css/site.css',
     ];
 
     public $js = [
         'js/jquery.flexslider.js',
-        'js/jquery.min.js',
+       // 'js/jquery.min.js',
         'js/main.js',
         'js/memenu.js',
         'js/responsiveslides.min.js',
