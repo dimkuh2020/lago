@@ -41,18 +41,17 @@ AppAsset::register($this);
 			</div>
 			<div class="header-left">		
 					<ul>
-						<li ><a href="login.html"  >Login</a></li>
-						<li><a  href="register.html"  >Register</a></li>
+						<li ><a href="login.html"  >Вход</a></li>
+						<li><a  href="register.html"  >Регистрация</a></li>
 					</ul>
 					<div class="cart box_1">
 						<a href="checkout.html">
 						<h3> <div class="total">
-								<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+								<span>0,00 грн.</span> (<span>0</span> товаров)
 							</div>
 							<img src="images/cart.png" alt=""/>
 						</h3>
-						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+						</a>						
 					</div>
 					<div class="clearfix"> </div>
 			</div>

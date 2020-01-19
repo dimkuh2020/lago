@@ -89,7 +89,7 @@ a.item_add {
 	  float: left;
   width: 25%;
   background-color: #fff;
-    margin-top: 11px;
+    
 }
 .search input[type="text"] {
 	outline: none;
@@ -144,6 +144,7 @@ a.item_add {
 }
 .logo{
 	float: left;
+	
 }
 .head-top {
   padding: 1em 0;
