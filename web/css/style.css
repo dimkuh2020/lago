@@ -917,8 +917,7 @@ h3.best {
   border-color: #EF5F21;
 }
 /*----*/
-.product-middle{
-	background: url(../images/product1.jpg) center;
+.product-middle{	
   width: 100%;
   min-height: 45px;
   display: block;

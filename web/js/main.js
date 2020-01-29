@@ -1,6 +1,6 @@
 
-
 jQuery(document).ready(function($){
+	
 	$(".memenu").memenu(); // меню в моб
 	
 	$(function () { // слайдер надписей (в будущем можно поменять на карусель)
