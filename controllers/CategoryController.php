@@ -23,15 +23,15 @@
         if(empty($category))                             //404 ошибка если нету категории
             throw new \yii\web\HttpException(404, 'Нема категории(((');
 
-        $products = Product::find()->where(['category_id' => $id])->all();
+        //$products = Product::find()->where(['category_id' => $id])->all();
             //или для пагин
-        /*$query = Product::find()->where(['category_id' => $id]); 
+        $query = Product::find()->where(['category_id' => $id]); 
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 3, 'forcePageParam' => false, 'pageSizeParam' => false]);
-        $products = $query->offset($pages->offset)->limit($pages->limit)->all();*/
+        $products = $query->offset($pages->offset)->limit($pages->limit)->all();
         
-        //$this->setMeta('E-SHOPPER | ' . $category->name, $category->keywords, $category->description);
+        $this->setMeta('LaGo | ' . $category->name, $category->keywords, $category->description);
 
-        return $this->render('view', compact('products', /*'pages',*/ 'category'));
+        return $this->render('view', compact('products', 'pages', 'category'));
 
     }
 

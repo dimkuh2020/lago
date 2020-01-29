@@ -23,7 +23,7 @@ class AppAsset extends AssetBundle
         //'css/bootstrap.css',
         'css/flexslider.css',
         'css/memenu.css',
-        'css/style.css',         
+        'css/style.css',               
         //'css/site.css',
     ];
 
@@ -33,7 +33,7 @@ class AppAsset extends AssetBundle
         'js/main.js',
         'js/memenu.js',
         'js/responsiveslides.min.js',
-        'js/simpleCart.min.js',  
+        'js/simpleCart.min.js',         
     ];
     public $depends = [
        'yii\web\YiiAsset',

@@ -3,12 +3,12 @@
 <div class="container">
         <div class="head-top">
             <div class="logo">
-                <a href="index.html"><img src="/images/logo1.png" style="width: 80px; height: 80px;" alt=""></a>	
+                <a href="/"><img src="/images/logo1.png" style="width: 80px; height: 80px;" alt=""></a>	
             </div>
             <div class=" h_menu4">
                     <ul class="memenu skyblue">
-                        <li class="active grid"><a class="color8" href="index.html">Главная</a></li>	
-                        <li><a class="color1" href="#">Все товары</a></li>
+                        <li class="active grid"><a class="color8" href="/">Главная</a></li>	
+                        <li><a class="color1" href="<?=Url::to(['product/index'])?>">Все товары</a></li>
                         <li class="grid"><a class="color2" href="#">Категории товаров</a>
                         <div class="mepanel">
                             <div class="row">
