@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 27 2020 г., 00:41
+-- Время создания: Фев 05 2020 г., 00:55
 -- Версия сервера: 5.7.25
 -- Версия PHP: 7.3.9
 
@@ -40,9 +40,14 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `keywords`, `description`) VALUES
-(1, 'подставки', '', ''),
-(2, 'счёты', '', ''),
-(3, 'лейбы', '', '');
+(1, 'Подставки', '', ''),
+(2, 'Детское развитие', '', ''),
+(3, 'Ярлычки', '', ''),
+(4, 'Товары для дома', '', ''),
+(5, 'Игры', '', ''),
+(6, 'Подарки', '', ''),
+(7, 'Коммерция', '', ''),
+(8, 'Заготовки для изделий', '', '');
 
 -- --------------------------------------------------------
 
@@ -97,10 +102,15 @@ CREATE TABLE `theme` (
 --
 
 INSERT INTO `theme` (`id`, `name`, `keywords`, `description`) VALUES
-(1, 'спорт', '', ''),
-(2, 'детское', '', ''),
-(3, 'новый год', '', ''),
-(4, 'животные', '', '');
+(1, 'Спорт', '', ''),
+(2, 'Детское', '', ''),
+(3, 'Новый год', '', ''),
+(4, 'Животные', '', ''),
+(5, 'Природа', '', ''),
+(6, 'Символика', '', ''),
+(7, 'Знаменитости', '', ''),
+(8, 'Праздничные', '', ''),
+(9, 'Разное', '', '');
 
 --
 -- Индексы сохранённых таблиц
@@ -132,7 +142,7 @@ ALTER TABLE `theme`
 -- AUTO_INCREMENT для таблицы `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
@@ -144,7 +154,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT для таблицы `theme`
 --
 ALTER TABLE `theme`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
