@@ -26,7 +26,7 @@
         //$products = Product::find()->where(['category_id' => $id])->all();
             //или для пагин
         $query = Product::find()->where(['category_id' => $id]); 
-        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 3, 'forcePageParam' => false, 'pageSizeParam' => false]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 4, 'forcePageParam' => false, 'pageSizeParam' => false]);
         $products = $query->offset($pages->offset)->limit($pages->limit)->all();
         
         $this->setMeta('LaGo | ' . $category->name, $category->keywords, $category->description);
@@ -35,7 +35,7 @@
 
     }
 
-    public function actionSearch(){
+    /*public function actionSearch(){
         $q = trim(Yii::$app->request->get('q')); // запрос с вью
         $this->setMeta('E-SHOPPER | ' . $q); // для метатегов
         if(!$q) return $this->render('search');  // для исключение пробелов в поиске trim вверху Для q
@@ -47,7 +47,7 @@
         return $this->render('search', compact('products', 'pages', 'q'));
 
 
-    }
+    }*/
 
  }
 

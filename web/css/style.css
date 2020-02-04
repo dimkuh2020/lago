@@ -1052,6 +1052,7 @@ p.tun{
 
 .product-at{
 	position: relative;
+	text-align: center;
 }
 .product-at:hover .pro-grid{
 	display:block;
@@ -2377,5 +2378,8 @@ a.item_add p.number {
 }
 .top-in2 {
   min-height: 81px;
+}
+.test{
+	text-align: center;
 }
 }
