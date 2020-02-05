@@ -23,6 +23,14 @@ h1,h2,h3,h4,h5,h6,label,p{
 	margin:0;	
 }
 /*----*/
+.prodpics{
+	display: block;
+    max-width: 100%;
+    height: auto;                                                                                                    
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .itemContainer{
 			width:100%;
 			float:left;
@@ -2378,8 +2386,5 @@ a.item_add p.number {
 }
 .top-in2 {
   min-height: 81px;
-}
-.test{
-	text-align: center;
 }
 }
