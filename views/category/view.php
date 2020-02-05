@@ -12,14 +12,14 @@ use yii\helpers\Url;
 				<div class="col-md-3 product-price">                      
                     <div class="product-bottom">
                         <div class="of-left-in">
-                            <h3 class="best">Топ продажи</h3>
+                            <h3 class="best">Топ продажи</h3>                            
                         </div>
                         <div class="product-go">
                             <div class=" fashion-grid">
                                 <a href="single.html"><img class="img-responsive " src="/images/p1.jpg" alt=""></a>
                             </div>
                             <div class=" fashion-grid1">
-                                <h6 class="best2"><a href="single.html" >тут кидаеи всякую рекламу по выбранной категории</a></h6>                    
+                                <h6 class="best2"><a href="single.html">тут кидаеи всякую рекламу по выбранной категории</a></h6>                    
                                 <span class=" price-in1"> $40.00</span>
                             </div>                    
                             <div class="clearfix"></div>
@@ -39,11 +39,14 @@ use yii\helpers\Url;
                 </div>
         <div class="col-md-9 product1">
             <div class="bottom-product">
+            <div style="text-align: center; padding-bottom: 20px;">
+                <h3><?=$category->name?></h3>                
+            </div>
         <?php if(!empty($products)) :?>   <!--если есть продукты в массиве-->
         <?php $i=0; foreach($products as $product) :?>
                 <div class="col-sm-4" style="padding-bottom: 15px;">
                     <div>
-                        <a href="<?=Url::to(['product/view', 'id' => $product->id])?>"><?=Html::img("@web/images/products/{$product->img}",['class' => 'img-responsive'], ['alt' => $product->name])?></a>	
+                        <a href="<?=Url::to(['product/view', 'id' => $product->id])?>"><?=Html::img("@web/images/products/{$product->img}",['class' => 'prodpics'], ['alt' => $product->name])?></a>	
                     </div>
                     <p class="tun"><?=$product->name?></p>
                     <a href="#" class="item_add"><p class="number item_price"><i> </i><?=$product->price?></p></a>					
@@ -51,11 +54,11 @@ use yii\helpers\Url;
         <?php endforeach;?>                      
             </div>                 
          </div>         
+<?php else :?>	
+    <h2>Здесь товаров пока нет.....</h2>
+<?php endif;?>				
     </div>
 </div>
 <nav class="in">
     <?php echo yii\widgets\LinkPager::widget(['pagination' => $pages]);?>
 </nav>
-<?php else :?>	
-    <h2>Здесь товаров пока нет.....</h2>
-<?php endif;?>				
