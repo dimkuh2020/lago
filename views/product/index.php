@@ -40,10 +40,13 @@ use yii\helpers\Url;
         <div class="col-md-9 product1">
             <div class="bottom-product">
             <div class="row" style="padding-bottom: 20px;">
-                <div class="col-8" style="text-align: center;">
+                <div class="col-sm-2" style="text-align: center;">
+                    <!--пустой див для центровки-->
+                </div> 
+                <div class="col-md-8" style="text-align: center;">
                     <h3>Наши товары</h3>
                 </div>
-                <div class="col-4">
+                <div class="col-sm-2" style="text-align: center;">
                     <h3>виджет</h3> 
                 </div>               
             </div>

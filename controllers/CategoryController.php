@@ -1,8 +1,7 @@
 <?php
  namespace app\controllers;
 
- use app\models\Category;
- use app\models\Theme;
+ use app\models\Category; 
  use app\models\Product;
  use yii\data\Pagination;
  

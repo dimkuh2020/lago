@@ -12,7 +12,7 @@
                         <li class="grid"><a class="color2" href="#">Категории товаров</a>
                         <div class="mepanel">
                             <div class="row">
-                                <div class="col1">
+                                <div class="col3">
                                     <div class="h_nav">
                                         <h4>Товары по виду</h4>
                                         <ul>
@@ -24,7 +24,7 @@
                                         </ul>	
                                     </div>							
                                 </div>
-                                <div class="col1">
+                                <div class="col3">
                                     <div class="h_nav">
                                     <h4>Товары по теме</h4>
                                         <ul>

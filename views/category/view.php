@@ -39,8 +39,16 @@ use yii\helpers\Url;
                 </div>
         <div class="col-md-9 product1">
             <div class="bottom-product">
-            <div style="text-align: center; padding-bottom: 20px;">
-                <h3><?=$category->name?></h3>                
+            <div class="row" style="padding-bottom: 20px;">
+                <div class="col-sm-2" style="text-align: center;">
+                    <!--пустой див для центровки-->
+                </div> 
+                <div class="col-md-8" style="text-align: center;">
+                    <h3><?=$category->name?></h3>
+                </div>
+                <div class="col-sm-2" style="text-align: center;">
+                    <h3>виджет</h3> 
+                </div>               
             </div>
         <?php if(!empty($products)) :?>   <!--если есть продукты в массиве-->
         <?php $i=0; foreach($products as $product) :?>
