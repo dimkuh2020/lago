@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
 		namespace: "callbacks",
 		pager: true,
 		});
-	});
+	});	
 
 	var tabItems = $('.cd-tabs-navigation a'),
 		tabContentWrapper = $('.cd-tabs-content');

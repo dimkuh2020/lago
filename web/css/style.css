@@ -1284,8 +1284,7 @@ padding: 1em 0;
 }
 .top-comment-right{
 	float: left;
-	width:84%;
-	margin-left:1em;
+	width:100%;	
 	background:#f8f8f8;
 	padding:2em ;
 }
