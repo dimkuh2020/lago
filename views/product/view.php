@@ -45,8 +45,18 @@ use yii\helpers\Url;
 						<div class="single-para" style="text-align: center">
                             <h4><?=$product->name?></h4>
                             <h5 class="item_price"><?=$product->price?> грн.</h5>
-                            <p style="text-align: left"><?=$product->content?></p>
-                            <a href="<?=\yii\helpers\Url::to(['cart/add', 'id'=> $product->id])?>" class="add-cart item_add">ДОБАВИТЬ В КОРЗИНУ</a>
+                            <div style="text-align: left">
+                                <p><?=$product->content?></p>
+                                <p><b>В наличии: </b>Да</p>                            
+                                <p><b>Категоря:</b><a href="<?=Url::to(['category/view', 'id' => $product->category->id])?>"> <?=$product->category->name?></a></p> 
+                                <span>                                
+                                    <label>Количество:</label>
+                                    <input type="text" pattern="\d [0-9]" value="1" id="qty" class="qty" /> <!--добваляем id="qty" для передачи на бекенд-->
+                                    <a href="<?=Url::to(['cart/add', 'id'=> $product->id])?>" data-id="<?=$product->id?>" class="add-cart item_add"> <!--меняем button на a-->
+                                        ДОБАВИТЬ В КОРЗИНУ
+                                    </a>
+                                </span>                            
+                            </div>                           
 						</div>
 					</div>
 				    <div class="clearfix"> </div>

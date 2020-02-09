@@ -1,5 +1,37 @@
 
+
 jQuery(document).ready(function($){
+	//показ модальной корзины
+	function showCart(cart){
+		$('#cart .modal-body').html(cart); //добавляем внутри .modal-body 
+		$('#cart').modal(); // выводим модально
+	}
+
+	//кнопка "Добавить в корзину"  в т.ч для карточки товара
+	$('.add-cart').on('click', function(e){  // скрипт добавления в корзину товара через ajax
+		e.preventDefault();
+		var id = $(this).data('id'); // получение id товара через арибут data-id="<?=$hits->id?>" в <html>
+		var qty = $('#qty').val(); // получение количества товаров ро id из карточки товара
+		$.ajax({
+			url: '/cart/add',
+			data: {id: id, qty: qty},
+			type: 'GET',
+			success: function(res){
+				if(!res) alert('Ошибка!');
+				//console.log(res);
+				showCart(res);	// показ модального окна корзины			
+			},
+			error: function(){
+				alert('Error!!!');
+			}
+		});
+	});
+	
+	$('.qty').on('keydown', function(e){  // ввод цифр в колличество товаров в карте товаров перед добавлением в корзину
+		if(e.key.length == 1 && e.key.match(/[^0-9'".]/)){
+			return false;
+		};
+	  })
 	
 	$(".memenu").memenu(); // меню в моб
 	

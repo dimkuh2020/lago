@@ -26,9 +26,23 @@ h1,h2,h3,h4,h5,h6,label,p{
 .prodpics{
 	display: block;
     max-width: 100%;
-    height: auto;                                                                                                    
+    height: auto;  /*auto*/                                                                                                   
     margin-left: auto;
     margin-right: auto;
+}
+
+.qty{
+	border: 1px solid #DEDEDC;
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    height: 33px;
+    outline: medium none;
+    text-align: center;
+	width: 50px;
+	margin-bottom: 2%;
+	margin-right: 2%;
 }
 
 .itemContainer{
@@ -1162,14 +1176,21 @@ ul.tag-men li span.women1{
 	  margin-left: 9em;
 }
 a.add-cart {
-  text-decoration: none;
-  color: #fff;
-  background: #EF5F21;
-  padding: 0.4em 0.8em;
-  font-size:0.9em;
-  text-transform: uppercase;
-  margin-top: 2em;
-  display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	font-family: 'Roboto', sans-serif; 
+	height: 30px; 	
+	text-decoration: none;
+	color: #fff;
+	background: #EF5F21;
+	padding: 0.4em 0.8em;
+	font-size:0.9em;
+	text-transform: uppercase;
+	
+	margin-bottom: 1.5%;
+	
+	display: inline-block;
+	border-radius: 3px;
 }
 a.add-cart:hover {
   background:#000;
