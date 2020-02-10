@@ -57,7 +57,7 @@ use yii\helpers\Url;
                         <a href="<?=Url::to(['product/view', 'id' => $product->id])?>"><?=Html::img("@web/images/products/{$product->img}",['class' => 'prodpics'], ['alt' => $product->name])?></a>	
                     </div>
                     <p class="tun"><?=$product->name?></p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i><?=$product->price?></p></a>					
+                    <a href="<?=Url::to(['cart/add', 'id'=> $product->id])?>" data-id="<?=$product->id?>" class="item_add"><p class="number item_price"><i> </i><?=$product->price?></p></a>					
                 </div>
         <?php endforeach;?>                      
             </div>                 

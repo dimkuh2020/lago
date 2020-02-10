@@ -1,14 +1,29 @@
 
 
-jQuery(document).ready(function($){
 	//показ модальной корзины
 	function showCart(cart){
 		$('#cart .modal-body').html(cart); //добавляем внутри .modal-body 
 		$('#cart').modal(); // выводим модально
 	}
+	
+	//кнопка "Очистить корзину"
+	function clearCart(){
+		$.ajax({
+			url: '/cart/clear',
+			type: 'GET',
+			success: function(res){
+				if(!res) alert('Ошибка!');
+				showCart(res);	// показ модального окна корзины			
+			},
+			error: function(){
+				alert('Error!!!');
+			}
+		});
+	}
+$(document).ready(function($){
 
 	//кнопка "Добавить в корзину"  в т.ч для карточки товара
-	$('.add-cart').on('click', function(e){  // скрипт добавления в корзину товара через ajax
+	$('.item_add').on('click', function(e){  // скрипт добавления в корзину товара через ajax
 		e.preventDefault();
 		var id = $(this).data('id'); // получение id товара через арибут data-id="<?=$hits->id?>" в <html>
 		var qty = $('#qty').val(); // получение количества товаров ро id из карточки товара
@@ -26,6 +41,23 @@ jQuery(document).ready(function($){
 			}
 		});
 	});
+
+	//удаление одного товара по Х
+	$('#cart .modal-body').on('click', '.del-item', function(){ // вытягиваем $id ис атрибута data-id в  ссылке Х на удаление одного товара по классу del-item
+		var id = $(this).data('id');
+		$.ajax({
+			url: '/cart/del-item',
+			data: {id: id},
+			type: 'GET',
+			success: function(res){
+				if(!res) alert('Ошибка!');				
+				showCart(res);	// показ модального окна корзины			
+			},
+			error: function(){
+				alert('Error!!!');
+			}
+		});
+	});	
 	
 	$('.qty').on('keydown', function(e){  // ввод цифр в колличество товаров в карте товаров перед добавлением в корзину
 		if(e.key.length == 1 && e.key.match(/[^0-9'".]/)){
