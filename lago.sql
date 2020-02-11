@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 05 2020 г., 00:55
--- Версия сервера: 5.7.25
+-- Время создания: Фев 11 2020 г., 18:53
+-- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -52,6 +52,41 @@ INSERT INTO `category` (`id`, `name`, `keywords`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `order`
+--
+
+CREATE TABLE `order` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `qty` int(10) NOT NULL,
+  `sum` float NOT NULL,
+  `status` enum('0','1') NOT NULL DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `order_items`
+--
+
+CREATE TABLE `order_items` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `order_id` int(10) UNSIGNED NOT NULL,
+  `product_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` float NOT NULL,
+  `qty_item` int(11) NOT NULL,
+  `sum_item` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `product`
 --
 
@@ -60,8 +95,8 @@ CREATE TABLE `product` (
   `category_id` int(10) UNSIGNED NOT NULL,
   `theme_id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci,
-  `price` float NOT NULL DEFAULT '0',
+  `content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` decimal(10,2) UNSIGNED NOT NULL DEFAULT 0.00,
   `keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'no-image.png',
@@ -75,14 +110,14 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `category_id`, `theme_id`, `name`, `content`, `price`, `keywords`, `description`, `img`, `hit`, `new`, `sale`) VALUES
-(1, 1, 1, 'Подставка \"Янукович\"', 'Крутая подставка с ликом бывшего лигитимного проффессора', 100.5, NULL, NULL, 'no-image.png', '0', '0', '0'),
-(2, 1, 4, 'Подставка \"Тигр\"', 'Почти как настоящий.', 55.5, NULL, NULL, 'tel_tiger.jpg', '0', '0', '0'),
-(3, 2, 2, 'Рахывныца', 'Счёты для детей для развития', 5, NULL, NULL, 'count_count.jpg', '0', '0', '0'),
-(4, 3, 3, 'Надписи на подарки', 'Маленькие надписи со сроком годности подарков(возврату и обмену не подлежат).', 99.9, NULL, NULL, 'label_items.jpg', '0', '0', '0'),
-(7, 1, 4, 'Подставка \"Заяц\"', 'Хороший зайка для мобилки', 59.99, NULL, NULL, 'tel_hare.jpg', '0', '0', '0'),
-(8, 1, 2, 'Подставка \"Майнкрафт\"', 'Родители будут рады что их ребёнок теперь не сидит за игрой Майнкрафт, а просто втыкает в деревяшку', 150501, NULL, NULL, 'tel_minecraft.jpg', '0', '0', '0'),
-(9, 1, 4, 'Подставка \"Бобёр\"', 'видишь бобра? я тоже не вижу, а он есть ', 1000.1, NULL, NULL, 'no-image.png', '0', '0', '0'),
-(10, 3, 4, 'Надписи для животных', 'Можно подписать весь зоопарк', 52.52, NULL, NULL, 'no-image.png', '0', '0', '0');
+(1, 1, 1, 'Подставка \"Янукович\"', 'Крутая подставка с ликом бывшего лигитимного проффессора', '100.50', NULL, NULL, 'no-image.png', '0', '0', '0'),
+(2, 1, 4, 'Подставка \"Тигр\"', 'Почти как настоящий.', '55.50', NULL, NULL, 'tel_tiger.jpg', '0', '0', '0'),
+(3, 2, 2, 'Рахывныца', 'Счёты для детей для развития', '5.00', NULL, NULL, 'count_count.jpg', '0', '0', '0'),
+(4, 3, 3, 'Надписи на подарки', 'Маленькие надписи со сроком годности подарков(возврату и обмену не подлежат).', '99.90', NULL, NULL, 'label_items.jpg', '0', '0', '0'),
+(7, 1, 4, 'Подставка \"Заяц\"', 'Хороший зайка для мобилки', '59.99', NULL, NULL, 'tel_hare.jpg', '0', '0', '0'),
+(8, 1, 2, 'Подставка \"Майнкрафт\"', 'Родители будут рады что их ребёнок теперь не сидит за игрой Майнкрафт, а просто втыкает в деревяшку', '150501.00', NULL, NULL, 'tel_minecraft.jpg', '0', '0', '0'),
+(9, 1, 4, 'Подставка \"Бобёр\"', 'видишь бобра? я тоже не вижу, а он есть ', '1000.10', NULL, NULL, 'no-image.png', '0', '0', '0'),
+(10, 3, 4, 'Надписи для животных', 'Можно подписать весь зоопарк', '52.52', NULL, NULL, 'no-image.png', '0', '0', '0');
 
 -- --------------------------------------------------------
 

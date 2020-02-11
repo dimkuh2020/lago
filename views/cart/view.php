@@ -3,6 +3,10 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 ?>
+
+</div>
+	<?=\app\components\MenuWidget::widget(['tpl' => 'menu'])?>
+	</div>
 <div class="container">
 <!--вывод флеш-сообщений-->
 <?php if( Yii::$app->session->hasFlash('success') ): ?>
@@ -55,11 +59,11 @@ use yii\widgets\ActiveForm;
         </div>
         <hr/>
         <?php $form = ActiveForm::begin()?>
-        <?= $form->field($order, 'name')?>
-        <?= $form->field($order, 'email')?>
-        <?= $form->field($order, 'phone')?>
-        <?= $form->field($order, 'address')?>
-        <?= Html::submitButton('Заказать', ['class' => 'btn btn-success'])?>
+            <?= $form->field($order, 'name')?>
+            <?= $form->field($order, 'email')?>
+            <?= $form->field($order, 'phone')?>
+            <?= $form->field($order, 'address')?>
+            <?= Html::submitButton('Заказать', ['class' => 'btn btn-success'])?>
         <?php ActiveForm::end()?>
     <?php else: ?>
         <h3>Корзина пуста</h3>
