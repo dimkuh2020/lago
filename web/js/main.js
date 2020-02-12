@@ -5,6 +5,21 @@
 		$('#cart .modal-body').html(cart); //добавляем внутри .modal-body 
 		$('#cart').modal(); // выводим модально
 	}
+
+	function getCart(){ // показ корзины через навбар
+		$.ajax({
+			url: '/cart/show',
+			type: 'GET',
+			success: function(res){
+				if(!res) alert('Ошибка!');
+				showCart(res);	// показ модального окна корзины			
+			},
+			error: function(){
+				alert('Error!!!');
+			}
+		});
+		return false;
+	}
 	
 	//кнопка "Очистить корзину"
 	function clearCart(){
