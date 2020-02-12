@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use  yii\web\Session;
 
 AppAsset::register($this);
 ?>
@@ -45,11 +46,19 @@ AppAsset::register($this);
 						<li><a  href="register.html"  >Регистрация</a></li>
 					</ul>
 					<div class="cart box_1">
-						<a href="checkout.html">
-						<h3> <div class="total">
+						<a href="#" onclick="getCart()">						
+						<h3>
+						<img src="/images/cart.png" alt=""/>
+							<?php if (!empty(Yii::$app->session['cart'])):?>
+							<div class="total">
+								<span><?=round(Yii::$app->session['cart.sum'], 2)?> грн.</span> (<span><?=Yii::$app->session['cart.qty']?></span> товаров)
+							</div>						
+							<?php else:?>
+							<div class="total">
 								<span>0,00 грн.</span> (<span>0</span> товаров)
 							</div>
-							<img src="images/cart.png" alt=""/>
+							<?php endif;?>
+
 						</h3>
 						</a>						
 					</div>
