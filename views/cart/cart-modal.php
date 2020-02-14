@@ -15,7 +15,10 @@
                 <tr style="text-align: center;">
                     <td><?= \yii\helpers\Html::img("@web/images/products/{$item['img']}", ['alt' => $item['name'], 'height' => 70])?></td>
                     <td><?=$item['name']?></td>
-                    <td><?=$item['qty']?></td>
+                    <td>
+                        <button class="minus-item" onclick="minusItem()">-</button>
+                        <?=$item['qty']?>
+                        <button data-id="<?=$id?>" class="plus-item">+</button></td>
                     <td><?=$item['price']?> грн.</td>
                     <td><span data-id="<?=$id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true" style="cursor: pointer;"></span></td>
                 </tr>

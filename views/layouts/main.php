@@ -48,17 +48,10 @@ AppAsset::register($this);
 					<div class="cart box_1">
 						<a href="#" onclick="getCart()">						
 						<h3>
-						<img src="/images/cart.png" alt=""/>
-							<?php if (!empty(Yii::$app->session['cart'])):?>
 							<div class="total">
-								<span><?=round(Yii::$app->session['cart.sum'], 2)?> грн.</span> (<span><?=Yii::$app->session['cart.qty']?></span> товаров)
-							</div>						
-							<?php else:?>
-							<div class="total">
-								<span>0,00 грн.</span> (<span>0</span> товаров)
+								<span>Корзина</span>
 							</div>
-							<?php endif;?>
-
+						<img src="/images/cart.png" alt=""/>							
 						</h3>
 						</a>						
 					</div>
