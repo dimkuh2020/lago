@@ -20,7 +20,7 @@ class Cart extends ActiveRecord{
         $_SESSION['cart.sum'] = isset($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] + $qty * $product->price : $qty * $product->price;// общая сумма 
     }
 
-    public function recalc($id){  //метода для изменения колличества товаров и общей суммы
+    public function recalc($id){  //метода для изменения колличества товаров и общей суммы после удаления товара
         if(!isset($_SESSION['cart'][$id])) return false;
         $qtyMinus =  $_SESSION['cart'][$id]['qty'];
         $sumMinus =  $_SESSION['cart'][$id]['qty'] * $_SESSION['cart'][$id]['price'];
@@ -28,6 +28,18 @@ class Cart extends ActiveRecord{
         $_SESSION['cart.sum'] -= $sumMinus;
         unset( $_SESSION['cart'][$id]);
     }
+
+    public function recalcPlus($id){  //метод для изменения колличества товаров и общей суммы после добавление товара по +
+        if(!isset($_SESSION['cart'][$id])) return false;        
+        $sumPlus = $_SESSION['cart'][$id]['price'];
+       // $_SESSION['cart'][$id]['qty'] +=1;   // убирает товар, но увеличивает сумму и кол-во
+       // $_SESSION['cart'][$id]['name'];
+        //$_SESSION['cart'][$id]['img'];
+        $_SESSION['cart.qty'] += 1;
+        $_SESSION['cart.sum'] += $sumPlus;
+        unset( $_SESSION['cart'][$id]);
+    }
+
 
     
 
