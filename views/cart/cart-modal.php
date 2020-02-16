@@ -16,7 +16,7 @@
                     <td><?= \yii\helpers\Html::img("@web/images/products/{$item['img']}", ['alt' => $item['name'], 'height' => 70])?></td>
                     <td><?=$item['name']?></td>
                     <td>
-                        <button class="minus-item" onclick="minusItem()">-</button>
+                        <button data-id="<?=$id?>" data-qty="<?=$item['qty']?>"class="minus-item">-</button>
                         <?=$item['qty']?>
                         <button data-id="<?=$id?>" class="plus-item">+</button></td>
                     <td><?=$item['price']?> грн.</td>

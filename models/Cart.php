@@ -32,12 +32,17 @@ class Cart extends ActiveRecord{
     public function recalcPlus($id){  //метод для изменения колличества товаров и общей суммы после добавление товара по +
         if(!isset($_SESSION['cart'][$id])) return false;        
         $sumPlus = $_SESSION['cart'][$id]['price'];
-       // $_SESSION['cart'][$id]['qty'] +=1;   // убирает товар, но увеличивает сумму и кол-во
-       // $_SESSION['cart'][$id]['name'];
-        //$_SESSION['cart'][$id]['img'];
+        $_SESSION['cart'][$id]['qty'] +=1;        
         $_SESSION['cart.qty'] += 1;
-        $_SESSION['cart.sum'] += $sumPlus;
-        unset( $_SESSION['cart'][$id]);
+        $_SESSION['cart.sum'] += $sumPlus;   
+    }
+
+    public function recalcMinus($id){  //метод для изменения колличества товаров и общей суммы после удаления товара по -
+        if(!isset($_SESSION['cart'][$id])) return false;        
+        $sumMinus = $_SESSION['cart'][$id]['price'];
+        $_SESSION['cart'][$id]['qty'] -=1;        
+        $_SESSION['cart.qty'] -= 1;
+        $_SESSION['cart.sum'] -= $sumMinus;   
     }
 
 
