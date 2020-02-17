@@ -11,7 +11,7 @@ function getCart(){
         type: 'GET',
         success: function(res){
             if(!res) alert('Ошибка!');
-            showCart(res);	// показ модального окна корзины			
+			showCart(res);	// показ модального окна корзины							
         },
         error: function(){
             alert('Error!!!');
@@ -42,13 +42,14 @@ $(document).ready(function($){
 		e.preventDefault();
 		var id = $(this).data('id'); // получение id товара через арибут data-id="<?=$hits->id?>" в <html>
 		var qty = $('#qty').val(); // получение количества товаров ро id из карточки товара
+		//var elem = '#elem'+id;  // строка для добавления атрибута по id елемента (на сервере cart-modal.php в <button id="elem<?=$id?>")
 		$.ajax({
 			url: '/cart/add',
 			data: {id: id, qty: qty},
 			type: 'GET',
 			success: function(res){
-				if(!res) alert('Ошибка!');
-				showCart(res);	// показ модального окна корзины			
+				if(!res) alert('Ошибка!');						
+				showCart(res);	// показ модального окна корзины
 			},
 			error: function(){
 				alert('Error!!!');
@@ -77,24 +78,22 @@ $(document).ready(function($){
 	//удаление 1 товара в cart-modal (-)
 	$('#cart .modal-body').on('click', '.minus-item', function(){ // вытягиваем $id с атрибута data-id в  ссылке Х на удаление одного товара по классу del-item
 		var id = $(this).data('id');
-		var qty = $(this).data('qty');
-		if(qty==1){
-			$('.minus-item').attr('disabled', true);			
-		}
-
-		console.log(qty);
-		$.ajax({
-			url: '/cart/minus-item',
-			data: {id: id, qty: qty},
-			type: 'GET',
-			success: function(res){
-				if(!res) alert('Ошибка!');				
-				showCart(res);	// показ модального окна корзины			
-			},
-			error: function(){
-				alert('Error!!!');
-			}
-		});
+		var qty = $(this).data('qty');		
+		var elem = '#elem'+id;  // строка для добавления атрибута по id елемента (на сервере cart-modal.php в <button id="elem<?=$id?>")		
+		if(qty>=2){
+			$.ajax({
+				url: '/cart/minus-item',
+				data: {id: id, qty: qty},
+				type: 'GET',
+				success: function(res){
+					if(!res) alert('Ошибка!');
+					showCart(res);	// показ модального окна корзины
+				},			
+				error: function(){
+					alert('Error!!!');
+				}			
+			});
+		}else $(elem).css('display', none); //блокирование/скрытие кнопки - после qty = 1	 	
 	});
 
 	//удаление одного товара по Х

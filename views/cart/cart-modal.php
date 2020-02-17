@@ -11,15 +11,15 @@
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($session['cart'] as $id => $item):?>
+            <?php foreach($session['cart'] as $id => $item):?>            
                 <tr style="text-align: center;">
                     <td><?= \yii\helpers\Html::img("@web/images/products/{$item['img']}", ['alt' => $item['name'], 'height' => 70])?></td>
-                    <td><?=$item['name']?></td>
-                    <td>
-                        <button data-id="<?=$id?>" data-qty="<?=$item['qty']?>"class="minus-item">-</button>
+                    <td><h5><?=$item['name']?></h5></td>
+                    <td><h5>
+                        <span data-id="<?=$id?>" data-qty="<?=$item['qty']?>"class="glyphicon glyphicon-minus minus-item" style="cursor: pointer; color: orangered; font-size: 12px" id="elem<?=$id?>"></span>
                         <?=$item['qty']?>
-                        <button data-id="<?=$id?>" class="plus-item">+</button></td>
-                    <td><?=$item['price']?> грн.</td>
+                        <span data-id="<?=$id?>" class="glyphicon glyphicon-plus plus-item" style="cursor: pointer; color: orangered; font-size: 12px"></span></h5></td>
+                    <td><h5><?=$item['price']?> грн.</h5></td>
                     <td><span data-id="<?=$id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true" style="cursor: pointer;"></span></td>
                 </tr>
             <?php endforeach;?>
