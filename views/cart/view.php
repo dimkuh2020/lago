@@ -22,42 +22,41 @@ use yii\widgets\ActiveForm;
             <?php echo Yii::$app->session->getFlash('error'); ?>
         </div>
     <?php endif;?>
-    <?php if(!empty($session['cart'])): ?>
-        <div class="table-responsive">
-            <table class="table table-hover table-striped">
+    <?php if(!empty($session['cart'])): ?>    
+        <div class="table-bordered" style="margin:10px 0px 10px 0px;">
+            <table class="table">
                 <thead>
-                <tr>
-                    <th>Фото</th>
-                    <th>Наименование</th>
-                    <th>Кол-во</th>
-                    <th>Цена</th>
-                    <th>Сумма</th>
-                    <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
-                </tr>
+                    <tr>
+                        <th  style="text-align: center;">Фото</th>
+                        <th  style="text-align: center;">Наименование</th>
+                        <th  style="text-align: center;">Кол-во</th>                    
+                    </tr>
                 </thead>
                 <tbody>
-                <?php foreach($session['cart'] as $id => $item):?>
-                    <tr>
-                        <td><?= \yii\helpers\Html::img("@web/images/products/{$item['img']}", ['alt' => $item['name'], 'height' => 50]) ?></td>
-                        <td><a href="<?= Url::to(['product/view', 'id' => $id])?>"><?= $item['name']?></a></td>
-                        <td><?= $item['qty']?></td>
-                        <td><?= $item['price']?></td>
-                        <td><?= $item['qty'] * $item['price']?></td>
-                        <td><span data-id="<?= $id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
+                <?php foreach($session['cart'] as $id => $item):?>            
+                    <tr style="text-align: center;">
+                        <td><?= \yii\helpers\Html::img("@web/images/products/{$item['img']}", ['alt' => $item['name'], 'height' => 70])?></td>
+                        <td><h5><a href="<?= Url::to(['product/view', 'id' => $id])?>"><?=$item['name']?></a></h5></td>
+                        <td><h5><?=$item['qty']?></h5></td>                    
                     </tr>
-                <?php endforeach?>
-                <tr>
-                    <td colspan="5">Итого: </td>
-                    <td><?= $session['cart.qty']?></td>
-                </tr>
-                <tr>
-                    <td colspan="5">На сумму: </td>
-                    <td><?= $session['cart.sum']?></td>
-                </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+            <hr/>
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>                
+                        <td colspan="4" style="margin-top: 3%; border: 0px;"><h4>Всего товаров:</h4></td>
+                        <td style="text-align: center; float: right; border: 0px;"><h4><?=$session['cart.qty']?></h4></td>
+                    </tr>
+                    <tr>                
+                        <td colspan="4" style="border: 0px;"><h4>На сумму: </h4></td>
+                        <td style="text-align: center; float: right; border: 0px;"><h4><?=$session['cart.sum']?> грн.</h4></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
-        <hr/>
+        
         <?php $form = ActiveForm::begin()?>
             <?= $form->field($order, 'name')?>
             <?= $form->field($order, 'email')?>
