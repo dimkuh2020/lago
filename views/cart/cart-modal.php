@@ -36,7 +36,7 @@
                 </tr>
                 <tr>                
                     <td colspan="4" style="border: 0px;"><h4>На сумму: </h4></td>
-                    <td style="text-align: center; float: right; border: 0px;"><h4><?=round($session['cart.sum'], 2)?> грн.</h4></td>
+                    <td style="text-align: center; float: right; border: 0px;"><h4><?=$session['cart.sum']?> грн.</h4></td>
                 </tr>
             </tbody>
         </table>
