@@ -39,7 +39,7 @@ $config = [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.ukr.net', //@хост
                 'username' => 'lago2020@ukr.net', //логин@
-                'password' => '960vJV91vVKqt7ab',   //пароль к почте сгенерирован в mail ukr.net
+                'password' => 'PJjXzOnoYJjpBMEW',   //пароль к почте сгенерирован в mail ukr.net (PJjXzOnoYJjpBMEW - дом; 960vJV91vVKqt7ab - ДЕИ)
                 'port' => '465', // порт
                 'encryption' => 'ssl',
             ],
