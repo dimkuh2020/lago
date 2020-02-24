@@ -63,6 +63,7 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-4" style="margin-top:20px;">        
             <?php $form = ActiveForm::begin()?>
                 <?= $form->field($order, 'name')?>
+                <?= $form->field($order, 'surname')?>
                 <?= $form->field($order, 'email')?>
                 <?= $form->field($order, 'phone')?>
                 <?= $form->field($order, 'address')?>

@@ -104,24 +104,23 @@ class CartController extends AppController{
     }
 
     public function actionView(){
-       // debug(Yii::$app->params['adminEmail']); // админский адрес (config\params.php)
+        //debug(Yii::$app->params['adminEmail']); // админский адрес (config\params.php)
 
         $session = Yii::$app->session; // начинаем ссесию через Yii, берём корзину
         $session->open();
         $this->setMeta('Корзина');
         $order = new Order();
-        if($order->load(Yii::$app->request->post())){
+        if($order->load(Yii::$app->request->post())){            
            $order->qty = $session['cart.qty'];  //данные по колличеству
            $order->sum = $session['cart.sum'];  // данные по сумме
            if($order->save()){         //сохранение заказа
                 $this->saveOrderItems($session['cart'], $order->id);
                 Yii::$app->session->setFlash('success', 'Ваш заказ принят.'); // флешка 
                 Yii::$app->mailer->compose('order', ['session' => $session]) // отправка почты (\mail\layout\order.php) + изменения в web.php
-                            ->setFrom(['dimkuh1985@gmail.com' => 'e-shopper'])
+                            ->setFrom(['lago2020@ukr.net' => 'LaGo'])
                             ->setTo($order->email)   //  или на админский адрес Yii::$app->params['adminEmail']; (config\params.php)
-                            ->setSubject('Заказ')
-                            ->setTextBody('Бла бла') // не обязательно
-                            ->setHtmlBody('<b>текст сообщения в формате HTML</b>') // не обязательно
+                            ->setSubject('Информация о заказе')                            
+                            ->setHtmlBody($order->name . ', добрый день! <br> Вы сделали заказ в магазине LaGo на сумму  ' . $order->sum . ' грн. <br> Менеджер свяжется с вами для уточнения деталей доставки в ближайшее время.') // не обязательно
                             ->send();
                 $session->remove('cart');    //очистка корзины после оформления заказа
                 $session->remove('cart.qty'); //..
@@ -141,6 +140,7 @@ class CartController extends AppController{
             $order_items->order_id = $order_id;
             $order_items->product_id = $id;
             $order_items->name = $item['name'];
+            $order_items->surname = $item['surname'];
             $order_items->price = $item['price'];
             $order_items->qty_item = $item['qty'];
             $order_items->sum_item = $item['qty']*$item['price'];
