@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 11 2020 г., 18:53
+-- Время создания: Фев 24 2020 г., 19:35
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.3.9
 
@@ -63,6 +63,7 @@ CREATE TABLE `order` (
   `sum` float NOT NULL,
   `status` enum('0','1') NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL
@@ -79,6 +80,7 @@ CREATE TABLE `order_items` (
   `order_id` int(10) UNSIGNED NOT NULL,
   `product_id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL,
   `price` float NOT NULL,
   `qty_item` int(11) NOT NULL,
   `sum_item` float NOT NULL
@@ -158,6 +160,18 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `product`
 --
 ALTER TABLE `product`
@@ -178,6 +192,18 @@ ALTER TABLE `theme`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT для таблицы `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT для таблицы `order_items`
+--
+ALTER TABLE `order_items`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
