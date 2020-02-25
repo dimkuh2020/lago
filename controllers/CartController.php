@@ -30,6 +30,7 @@ use app\models\Order;
 use app\models\OrderItems;  
 use Yii;
 
+
 class CartController extends AppController{
 
     public function actionAdd(){
@@ -114,7 +115,7 @@ class CartController extends AppController{
            $order->qty = $session['cart.qty'];  //данные по колличеству
            $order->sum = $session['cart.sum'];  // данные по сумме
            if($order->save()){         //сохранение заказа
-                $this->saveOrderItems($session['cart'], $order->id);
+                $this->saveOrderItems($session['cart'], $order->id);                
                 Yii::$app->session->setFlash('success', 'Ваш заказ принят.'); // флешка 
                 Yii::$app->mailer->compose('order', ['session' => $session]) // отправка почты (\mail\layout\order.php) + изменения в web.php
                             ->setFrom(['lago2020@ukr.net' => 'LaGo'])
@@ -125,10 +126,12 @@ class CartController extends AppController{
                 $session->remove('cart');    //очистка корзины после оформления заказа
                 $session->remove('cart.qty'); //..
                 $session->remove('cart.sum'); //..
-                return $this->refresh();               
-           }else{
+                //return $this->goHome(); 
+                //или обновить
+                return $this->refresh();                
+            }else{
                 Yii::$app->session->setFlash('error', 'Ошибка оформления заказа.'); // флешка 
-           }
+            }
         }        
         
         return $this->render('view', compact('session', 'order'));

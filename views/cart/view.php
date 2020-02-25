@@ -6,13 +6,13 @@ use yii\widgets\ActiveForm;
 
 </div>
 	<?=\app\components\MenuWidget::widget(['tpl' => 'menu'])?>
-	</div>
+</div>
 <div class="container">
 <!--вывод флеш-сообщений-->
     <?php if( Yii::$app->session->hasFlash('success') ): ?>
         <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <?php echo Yii::$app->session->getFlash('success'); ?>
+            <a type="button" class="close" data-dismiss="alert" aria-label="Close" href="<?= Url::to('/');?>"><span aria-hidden="true">&times;</span></a>
+            <?php echo Yii::$app->session->getFlash('success'); ?>           
         </div>
     <?php endif;?>
 
@@ -72,6 +72,10 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
     <?php else: ?>
-        <h3>Корзина пуста</h3>
+        <center>
+            <div class="slideRight">            
+                <img src="/images/emptycart.png">
+            </div>
+        </center>
     <?php endif;?>
 </div>
