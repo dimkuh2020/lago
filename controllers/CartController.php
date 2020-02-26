@@ -120,9 +120,15 @@ class CartController extends AppController{
                 Yii::$app->mailer->compose('order', ['session' => $session]) // отправка почты (\mail\layout\order.php) + изменения в web.php
                             ->setFrom(['lago2020@ukr.net' => 'LaGo'])
                             ->setTo($order->email)   //  или на админский адрес Yii::$app->params['adminEmail']; (config\params.php)
-                            ->setSubject('Информация о заказе')                            
-                            ->setHtmlBody($order->name . ', добрый день! <br> Вы сделали заказ в магазине LaGo на сумму  ' . $order->sum . ' грн. <br> Менеджер свяжется с вами для уточнения деталей доставки в ближайшее время.') // не обязательно
+                            ->setSubject('Ваш заказ № ' . $order->id)                            
+                            ->setHtmlBody($order->name . ', добрый день! <br> Вы сделали заказ в магазине LaGo на сумму  ' . $order->sum . ' грн. <br>  Менеджер свяжется с вами для уточнения деталей доставки в ближайшее время.') // не обязательно
                             ->send();
+                Yii::$app->mailer->compose('order', ['session' => $session]) // отправка почты (\mail\layout\order.php) + изменения в web.php
+                            ->setFrom(['lago2020@ukr.net' => 'LaGo'])
+                            ->setTo('lago2020@ukr.net')  //  или на админский адрес Yii::$app->params['adminEmail']; (config\params.php)
+                            ->setSubject('Заказ № ' . $order->id) 
+                            ->send();
+
                 $session->remove('cart');    //очистка корзины после оформления заказа
                 $session->remove('cart.qty'); //..
                 $session->remove('cart.sum'); //..

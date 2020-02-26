@@ -10,6 +10,7 @@ use yii\widgets\ActiveForm;
 <div class="container">
 <!--вывод флеш-сообщений-->
     <?php if( Yii::$app->session->hasFlash('success') ): ?>
+        <br>
         <div class="alert alert-success alert-dismissible" role="alert">
             <a type="button" class="close" data-dismiss="alert" aria-label="Close" href="<?= Url::to('/');?>"><span aria-hidden="true">&times;</span></a>
             <?php echo Yii::$app->session->getFlash('success'); ?>           
