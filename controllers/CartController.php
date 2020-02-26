@@ -123,7 +123,7 @@ class CartController extends AppController{
                             ->setSubject('Ваш заказ № ' . $order->id)                            
                             ->setHtmlBody($order->name . ', добрый день! <br> Вы сделали заказ в магазине LaGo на сумму  ' . $order->sum . ' грн. <br>  Менеджер свяжется с вами для уточнения деталей доставки в ближайшее время.') // не обязательно
                             ->send();
-                Yii::$app->mailer->compose('order', ['session' => $session]) // отправка почты (\mail\layout\order.php) + изменения в web.php
+                Yii::$app->mailer->compose('order', ['session' => $session, 'order' => $order]) // отправка почты (\mail\layout\order.php) + изменения в web.php
                             ->setFrom(['lago2020@ukr.net' => 'LaGo'])
                             ->setTo('lago2020@ukr.net')  //  или на админский адрес Yii::$app->params['adminEmail']; (config\params.php)
                             ->setSubject('Заказ № ' . $order->id) 
