@@ -148,8 +148,7 @@ class CartController extends AppController{
             $order_items = new OrderItems(); //запись в order_items
             $order_items->order_id = $order_id;
             $order_items->product_id = $id;
-            $order_items->name = $item['name'];
-            $order_items->surname = $item['surname'];
+            $order_items->name = $item['name'];            
             $order_items->price = $item['price'];
             $order_items->qty_item = $item['qty'];
             $order_items->sum_item = $item['qty']*$item['price'];
