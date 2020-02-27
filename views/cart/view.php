@@ -2,6 +2,8 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use yii\widgets\MaskedInput;
+
 ?>
 
 </div>
@@ -18,6 +20,7 @@ use yii\widgets\ActiveForm;
     <?php endif;?>
 
     <?php if( Yii::$app->session->hasFlash('error') ): ?>
+        <br>
         <div class="alert alert-danger alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <?php echo Yii::$app->session->getFlash('error'); ?>
@@ -65,9 +68,10 @@ use yii\widgets\ActiveForm;
             <?php $form = ActiveForm::begin()?>
                 <?= $form->field($order, 'name')?>
                 <?= $form->field($order, 'surname')?>
-                <?= $form->field($order, 'email')?>
-                <?= $form->field($order, 'phone')?>
+                <?= $form->field($order, 'email')->input('email');?>
+                <?= $form->field($order, 'phone')->widget(MaskedInput::className(),['mask' => '+38(099)999-99-99'])?>
                 <?= $form->field($order, 'address')?>
+                <p>* Для доставки "Нова пошта" необходимо указывать только номер отделения и город"</p><br>
                 <?= Html::submitButton('Заказать', ['class' => 'btn btn-success'])?>
             <?php ActiveForm::end()?>
         </div>
