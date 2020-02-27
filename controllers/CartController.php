@@ -117,7 +117,7 @@ class CartController extends AppController{
            if($order->save()){         //сохранение заказа
                 $this->saveOrderItems($session['cart'], $order->id);                
                 Yii::$app->session->setFlash('success', 'Ваш заказ принят.'); // флешка 
-                Yii::$app->mailer->compose('order', ['session' => $session]) // отправка почты (\mail\layout\order.php) + изменения в web.php
+                Yii::$app->mailer->compose('customerorder', ['session' => $session]) // отправка почты (\mail\layout\costomerorder.php) + изменения в web.php
                             ->setFrom(['lago2020@ukr.net' => 'LaGo'])
                             ->setTo($order->email)   //  или на админский адрес Yii::$app->params['adminEmail']; (config\params.php)
                             ->setSubject('Ваш заказ № ' . $order->id)                            
@@ -140,7 +140,7 @@ class CartController extends AppController{
             }
         }        
         
-        return $this->render('view', compact('session', 'order'));
+        return $this->render('view', compact('session', 'order', 'customerorder'));
     }
 
     protected function saveOrderItems($items, $order_id){ //метод лоя получения id заказа
