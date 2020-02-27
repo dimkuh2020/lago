@@ -116,7 +116,7 @@ class CartController extends AppController{
            $order->sum = $session['cart.sum'];  // данные по сумме
            if($order->save()){         //сохранение заказа
                 $this->saveOrderItems($session['cart'], $order->id);                
-                Yii::$app->session->setFlash('success', 'Ваш заказ принят.'); // флешка 
+                Yii::$app->session->setFlash('success', 'Ваш заказ принят.'); // флешка  
                 Yii::$app->mailer->compose('customerorder', ['session' => $session]) // отправка почты (\mail\layout\costomerorder.php) + изменения в web.php
                             ->setFrom(['lago2020@ukr.net' => 'LaGo'])
                             ->setTo($order->email)   //  или на админский адрес Yii::$app->params['adminEmail']; (config\params.php)
