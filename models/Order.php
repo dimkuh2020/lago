@@ -56,12 +56,13 @@ class Order extends ActiveRecord
     public function rules()
     {
         return [
-            [['name','surname', 'email', 'phone', 'address'], 'required'],
+            [['name','surname', 'email', 'phone'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
             [['qty'], 'integer'],
             [['sum'], 'number'],
             [['status'], 'boolean'],
             [['name', 'surname', 'email', 'phone', 'address'], 'string', 'max' => 255],
+            [['name','surname'], 'match', 'pattern' => '/^[a-zа-яё\s]+$/iu'], //регулярное выражение
         ];
     }
 
@@ -75,7 +76,7 @@ class Order extends ActiveRecord
             'surname' => 'Фамилия',
             'email' => 'E-mail',
             'phone' => 'Телефон',
-            'address' => 'Адрес',
+            'address' => 'Адрес доставки (не обязательно)',
         ];
     }
 }
