@@ -9,9 +9,19 @@
 
  class CategoryController extends AppController{
       
-    public function actionIndex(){       
+    public function actionIndex(){
+        
+        $category = Category::find()->all();
+        shuffle($category);
+
+        $result = array();
+        for($i=0; $i<6; $i++){  // первые 6 категорий после смешивания
+            array_push($result, $category[$i]);
+        }
+
+        //debug($result);
        
-        return $this->render('index');
+        return $this->render('index', compact('result'));
     }
 
     public function actionView($id){ //для получения всех товаров по категориям при клике на категории
