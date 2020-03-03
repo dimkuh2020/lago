@@ -69,7 +69,7 @@ AppAsset::register($this);
 <div class="footer">
 	<div class="container">
 		<div class="footer-top-at">		
-			<div class="col-md-4 amet-sed ">
+			<div class="col-md-6 amet-sed ">
 				<h4>НАШИ КОНТАКТЫ</h4>			
 				<p>Украина, город Киев</p>
 				<p>улица Радужная, 100500 </p>
@@ -82,10 +82,16 @@ AppAsset::register($this);
 					<li><a href="#"><i class="gmail"> </i></a></li>					
 				</ul>
 			</div>			
-			<div class="col-md-4 amet-sed " style="text-align: center">
-				<h4>ОСНОВАТЕЛЬ LaGo</h4>
-				<a href="https://www.facebook.com/sergey.kosyachenko.5"><img src="/images/kos.jpg" class="kos">	
-				<p>Sergey Kosyachenko</p></a>				
+			<div class="col-md-6 amet-sed">	
+				<div style="text-align: center; float: left;">		
+					<h4>ОСНОВАТЕЛЬ LaGo</h4>
+					
+						<a href="https://www.facebook.com/sergey.kosyachenko.5">
+							<img src="/images/kos.jpg" class="kos">	
+							<p>Sergey Kosyachenko</p>
+						</a>
+					
+				</div>								
 			</div>
 			<div class="clearfix"> </div>
 		</div>

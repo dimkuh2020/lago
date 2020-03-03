@@ -610,6 +610,7 @@ height: 35px;
 	margin: 0 0 1em;
 	  text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 20px; 
 }
 .footer-top-at {
   padding: 4em 0;
