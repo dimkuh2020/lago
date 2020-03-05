@@ -75,26 +75,76 @@ $this->title = 'LaGo';
 			<div class="clearfix"></div>
 		</div>
 	<!----->	
-		<div class="content-top-bottom">
-			<h2>НОВИНКА</h2>
-			<div class="col-md-6 men">
-				<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t1.jpg" alt="">
-					<div class="b-wrapper">
-						<h3 class="b-animate b-from-top top-in   b-delay03 ">
-							<span>Lorem</span>	
-						</h3>
+		<div class="content-top-bottom">			
+		<div class="col-md-6">
+		<br>
+			<h2>Новинки</h2>				
+				<div class="col-md2">
+					<div class="col-md-6 men1">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t3.jpg" alt="">
+							<div class="b-wrapper">
+								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
+									<span>Lorem</span>	
+								</h3>
+							</div>
+						</a>
 					</div>
-				</a>
-			</div>
+					<div class="col-md-6 men2">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t4.jpg" alt="">
+							<div class="b-wrapper">
+								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
+									<span>Lorem</span>	
+								</h3>
+							</div>
+						</a>					
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md2">
+					<div class="col-md-6 men1">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t3.jpg" alt="">
+							<div class="b-wrapper">
+								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
+									<span>Lorem</span>	
+								</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 men2">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t4.jpg" alt="">
+							<div class="b-wrapper">
+								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
+									<span>Lorem</span>	
+								</h3>
+							</div>
+						</a>					
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>			
 			<div class="col-md-6">
-				<div class="col-md1 ">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t2.jpg" alt="">
-						<div class="b-wrapper">
-							<h3 class="b-animate b-from-top top-in1   b-delay03 ">
-								<span>Lorem</span>	
-							</h3>
-						</div>
-					</a>				
+			<br>
+			<h2>Хит продаж</h2>				
+				<div class="col-md2">
+					<div class="col-md-6 men1">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t3.jpg" alt="">
+							<div class="b-wrapper">
+								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
+									<span>Lorem</span>	
+								</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 men2">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t4.jpg" alt="">
+							<div class="b-wrapper">
+								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
+									<span>Lorem</span>	
+								</h3>
+							</div>
+						</a>					
+					</div>
+					<div class="clearfix"> </div>
 				</div>
 				<div class="col-md2">
 					<div class="col-md-6 men1">
