@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 24 2020 г., 19:35
+-- Время создания: Мар 05 2020 г., 19:04
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.3.9
 
@@ -32,22 +32,23 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `keywords` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `keywords`, `description`) VALUES
-(1, 'Подставки', '', ''),
-(2, 'Детское развитие', '', ''),
-(3, 'Ярлычки', '', ''),
-(4, 'Товары для дома', '', ''),
-(5, 'Игры', '', ''),
-(6, 'Подарки', '', ''),
-(7, 'Коммерция', '', ''),
-(8, 'Заготовки для изделий', '', '');
+INSERT INTO `category` (`id`, `name`, `keywords`, `description`, `img`) VALUES
+(1, 'Подставки', '', '', 'tel_minecraft.jpg'),
+(2, 'Детское развитие', '', '', 'count_count.jpg'),
+(3, 'Ярлычки', '', '', 'label_items.jpg'),
+(4, 'Товары для дома', '', '', 'no-image.png'),
+(5, 'Игры', '', '', 'no-image.png'),
+(6, 'Подарки', '', '', 'no-image.png'),
+(7, 'Коммерция', '', '', 'no-image.png'),
+(8, 'Заготовки для изделий', '', '', 'no-image.png');
 
 -- --------------------------------------------------------
 
@@ -69,6 +70,14 @@ CREATE TABLE `order` (
   `address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `order`
+--
+
+INSERT INTO `order` (`id`, `created_at`, `updated_at`, `qty`, `sum`, `status`, `name`, `surname`, `email`, `phone`, `address`) VALUES
+(1, '2020-02-27 13:46:07', '2020-02-27 13:46:07', 1, 55.5, '0', 'Дима', 'Пупкин', 'dimkuh1985@gmail.com', '+38(011)646-54-56', ''),
+(2, '2020-02-27 15:56:04', '2020-02-27 15:56:04', 1, 55.5, '0', 'Дима', 'Пупкин', 'dimkuh1985@gmail.com', '+38(045)454-54-44', 'adressssss');
+
 -- --------------------------------------------------------
 
 --
@@ -80,11 +89,17 @@ CREATE TABLE `order_items` (
   `order_id` int(10) UNSIGNED NOT NULL,
   `product_id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
-  `surname` varchar(255) NOT NULL,
   `price` float NOT NULL,
   `qty_item` int(11) NOT NULL,
   `sum_item` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `name`, `price`, `qty_item`, `sum_item`) VALUES
+(1, 2, 2, 'Подставка \"Тигр\"', 55.5, 1, 55.5);
 
 -- --------------------------------------------------------
 
@@ -119,7 +134,8 @@ INSERT INTO `product` (`id`, `category_id`, `theme_id`, `name`, `content`, `pric
 (7, 1, 4, 'Подставка \"Заяц\"', 'Хороший зайка для мобилки', '59.99', NULL, NULL, 'tel_hare.jpg', '0', '0', '0'),
 (8, 1, 2, 'Подставка \"Майнкрафт\"', 'Родители будут рады что их ребёнок теперь не сидит за игрой Майнкрафт, а просто втыкает в деревяшку', '150501.00', NULL, NULL, 'tel_minecraft.jpg', '0', '0', '0'),
 (9, 1, 4, 'Подставка \"Бобёр\"', 'видишь бобра? я тоже не вижу, а он есть ', '1000.10', NULL, NULL, 'no-image.png', '0', '0', '0'),
-(10, 3, 4, 'Надписи для животных', 'Можно подписать весь зоопарк', '52.52', NULL, NULL, 'no-image.png', '0', '0', '0');
+(10, 3, 4, 'Надписи для животных', 'Можно подписать весь зоопарк', '52.52', NULL, NULL, 'no-image.png', '0', '0', '0'),
+(11, 6, 8, 'Коробка с любовью', '...возможно сопутствующие сюрпризы', '500.00', NULL, NULL, 'lovekorobka.jpg', '0', '1', '0');
 
 -- --------------------------------------------------------
 
@@ -197,19 +213,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT для таблицы `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `theme`
