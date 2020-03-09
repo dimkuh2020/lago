@@ -1,39 +1,66 @@
 <?php
 
 namespace app\models;
+use \yii\db\ActiveRecord;
+use \yii\web\IdentityInterface;
+use Yii;
 
-class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
+/**
+ * This is the model class for table "users".
+ *
+ * @property int $id
+ * @property string $name
+ * @property string|null $surname
+ * @property string|null $password
+ * @property string|null $phone
+ * @property string|null $email
+ * @property string|null $auth_key
+ * @property string|null $access_token
+ */
+class User extends ActiveRecord implements IdentityInterface //через GII
 {
-    public $id;
-    public $username;
-    public $password;
-    public $authKey;
-    public $accessToken;
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'users';
+    }
 
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['email'], 'required'],
+            [['name', 'surname', 'password', 'phone', 'email', 'auth_key', 'access_token'], 'string', 'max' => 255],
+        ];
+    }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'name' => 'Name',
+            'surname' => 'Surname',
+            'password' => 'Password',
+            'phone' => 'Phone',
+            'email' => 'Email',
+            'auth_key' => 'Auth Key',
+            'access_token' => 'Access Token',
+        ];
+    }
 
     /**
      * {@inheritdoc}
      */
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return static::findOne($id); // возвращаем найденого пользователя по id
     }
 
     /**
@@ -41,13 +68,7 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
-
-        return null;
+       // return static::findOne(['access_token' => $token]); // токен
     }
 
     /**
@@ -56,15 +77,9 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
      * @param string $username
      * @return static|null
      */
-    public static function findByUsername($username)
+    public static function findByUsername($name)
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
-
-        return null;
+        return static::findOne(['name' => $name]); // поиск по имени
     }
 
     /**
@@ -80,15 +95,15 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
      */
     public function getAuthKey()
     {
-        return $this->authKey;
+        return $this->auth_key; // поле из табл users
     }
 
     /**
      * {@inheritdoc}
      */
-    public function validateAuthKey($authKey)
+    public function validateAuthKey($authKey) // для cookie
     {
-        return $this->authKey === $authKey;
+        return $this->auth_key === $authKey; // поле из табл users
     }
 
     /**
@@ -99,6 +114,6 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
-        return $this->password === $password;
+        return \Yii::$app->security->validatePassword($password, $this->password); //для хеша
     }
 }

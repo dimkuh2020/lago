@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 05 2020 г., 19:04
--- Версия сервера: 10.3.13-MariaDB-log
+-- Время создания: Мар 10 2020 г., 00:53
+-- Версия сервера: 5.7.25
 -- Версия PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -112,8 +112,8 @@ CREATE TABLE `product` (
   `category_id` int(10) UNSIGNED NOT NULL,
   `theme_id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `price` decimal(10,2) UNSIGNED NOT NULL DEFAULT 0.00,
+  `content` text COLLATE utf8mb4_unicode_ci,
+  `price` decimal(10,2) UNSIGNED NOT NULL DEFAULT '0.00',
   `keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'no-image.png',
@@ -135,7 +135,8 @@ INSERT INTO `product` (`id`, `category_id`, `theme_id`, `name`, `content`, `pric
 (8, 1, 2, 'Подставка \"Майнкрафт\"', 'Родители будут рады что их ребёнок теперь не сидит за игрой Майнкрафт, а просто втыкает в деревяшку', '150501.00', NULL, NULL, 'tel_minecraft.jpg', '0', '0', '0'),
 (9, 1, 4, 'Подставка \"Бобёр\"', 'видишь бобра? я тоже не вижу, а он есть ', '1000.10', NULL, NULL, 'no-image.png', '0', '0', '0'),
 (10, 3, 4, 'Надписи для животных', 'Можно подписать весь зоопарк', '52.52', NULL, NULL, 'no-image.png', '0', '0', '0'),
-(11, 6, 8, 'Коробка с любовью', '...возможно сопутствующие сюрпризы', '500.00', NULL, NULL, 'lovekorobka.jpg', '0', '1', '0');
+(11, 6, 8, 'Коробка с любовью', '...возможно сопутствующие сюрпризы', '500.00', NULL, NULL, 'pres_lovekorobka.jpg', '0', '1', '0'),
+(12, 1, 5, 'Подставка \"Цветочек\"', 'не вянет, радует глаз, можно в топку если холодно.', '120.50', NULL, NULL, 'tel_flower.jpg', '1', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -164,6 +165,32 @@ INSERT INTO `theme` (`id`, `name`, `keywords`, `description`) VALUES
 (7, 'Знаменитости', '', ''),
 (8, 'Праздничные', '', ''),
 (9, 'Разное', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `auth_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `access_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `surname`, `password`, `phone`, `email`, `auth_key`, `access_token`) VALUES
+(1, 'Василий', NULL, '$2y$13$KiGpmRLtjTE5jBOkXLgjfeBWiBDiqcWaHXw/l/k1C35EIBIyVpdJy', '+38(012)345-67-89', 'vasilPuo@pupkin.com', NULL, NULL),
+(2, 'Василий', NULL, '$2y$13$36fk1LOuIgNsR246qndOy.3uLjOlnJFQIEJbTgb2/cZmBLib.pdbK', '+38(084)784-84-84', 'vasilPuo@xn--pupkin-jtf.com', NULL, NULL),
+(3, 'ффф', 'Пупкин', '$2y$13$0rWP.ZmTGVUzB2tNasga0u1dBQDTlGJGPN4FexedlUeVsTXlVR.3O', '+38(056)566-46-46', 'vasi@pupkin.com', NULL, NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -200,6 +227,12 @@ ALTER TABLE `theme`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -225,13 +258,19 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `theme`
 --
 ALTER TABLE `theme`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

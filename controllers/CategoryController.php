@@ -19,9 +19,12 @@
             array_push($result, $category[$i]);
         }
 
+        $news = Product::find()->where(['new'=> 1]); //выбираем все новинки
+        $hits = Product::find()->where(['hit'=> 1]); //выбираем все хиты
+
         //debug($result);
        
-        return $this->render('index', compact('result'));
+        return $this->render('index', compact('result', 'news', 'hits'));
     }
 
     public function actionView($id){ //для получения всех товаров по категориям при клике на категории
