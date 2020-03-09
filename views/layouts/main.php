@@ -10,6 +10,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use  yii\web\Session;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -43,7 +44,7 @@ AppAsset::register($this);
 			<div class="header-left">		
 					<ul>
 						<li ><a href="login.html"  >Вход</a></li>
-						<li><a  href="register.html"  >Регистрация</a></li>
+						<li><a  href="<?=Url::to(['site/signup'])?>"  >Регистрация</a></li>
 					</ul>
 					<div class="cart box_1">
 						<a href="#" onclick="getCart()">						

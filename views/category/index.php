@@ -80,8 +80,8 @@ $this->title = 'LaGo';
 		<br>
 			<h2>Новинки</h2>				
 				<div class="col-md2">
-					<div class="col-md-6 men1">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t3.jpg" alt="">
+					<div class="col-md-6 men">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/products/pres_lovekorobka.jpg" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
 									<span>Lorem</span>	
@@ -89,8 +89,8 @@ $this->title = 'LaGo';
 							</div>
 						</a>
 					</div>
-					<div class="col-md-6 men2">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t4.jpg" alt="">
+					<div class="col-md-6 men">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/products/pres_lovekorobka.jpg" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
 									<span>Lorem</span>	
@@ -101,8 +101,8 @@ $this->title = 'LaGo';
 					<div class="clearfix"> </div>
 				</div>
 				<div class="col-md2">
-					<div class="col-md-6 men1">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t3.jpg" alt="">
+					<div class="col-md-6 men">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/products/pres_lovekorobka.jpg" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
 									<span>Lorem</span>	
@@ -110,8 +110,8 @@ $this->title = 'LaGo';
 							</div>
 						</a>
 					</div>
-					<div class="col-md-6 men2">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t4.jpg" alt="">
+					<div class="col-md-6 men">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/products/pres_lovekorobka.jpg" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
 									<span>Lorem</span>	
@@ -126,8 +126,8 @@ $this->title = 'LaGo';
 			<br>
 			<h2>Хит продаж</h2>				
 				<div class="col-md2">
-					<div class="col-md-6 men1">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t3.jpg" alt="">
+					<div class="col-md-6 men">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/products/tel_flower.jpg" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
 									<span>Lorem</span>	
@@ -135,8 +135,8 @@ $this->title = 'LaGo';
 							</div>
 						</a>
 					</div>
-					<div class="col-md-6 men2">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t4.jpg" alt="">
+					<div class="col-md-6 men">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/products/tel_flower.jpg" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
 									<span>Lorem</span>	
@@ -147,8 +147,8 @@ $this->title = 'LaGo';
 					<div class="clearfix"> </div>
 				</div>
 				<div class="col-md2">
-					<div class="col-md-6 men1">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t3.jpg" alt="">
+					<div class="col-md-6 men">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/products/tel_flower.jpg" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
 									<span>Lorem</span>	
@@ -156,8 +156,8 @@ $this->title = 'LaGo';
 							</div>
 						</a>
 					</div>
-					<div class="col-md-6 men2">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/t4.jpg" alt="">
+					<div class="col-md-6 men">
+						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="/images/products/tel_flower.jpg" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-top top-in2   b-delay03 ">
 									<span>Lorem</span>	
