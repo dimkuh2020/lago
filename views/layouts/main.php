@@ -43,8 +43,15 @@ AppAsset::register($this);
 			</div>
 			<div class="header-left">		
 					<ul>
-						<li ><a href="login.html"  >Вход</a></li>
-						<li><a  href="<?=Url::to(['site/signup'])?>"  >Регистрация</a></li>
+					<?php if(Yii::$app->user->isGuest):?>
+						<li ><a href="<?=Url::to(['/site/login'])?>"  >Вход</a></li>
+					<?php endif;?>	
+					<?php if(!Yii::$app->user->isGuest):?> <!--показываем сылку на выход если не гость-->
+						<li><a href="<?=\yii\helpers\Url::to(['/site/logout'])?>"><?=Yii::$app->user->identity['name']?> (Выход)</a></li>
+					<?php endif;?>
+					<?php if(Yii::$app->user->isGuest):?>
+						<li><a  href="<?=Url::to(['/site/signup'])?>"  >Регистрация</a></li>
+					<?php endif;?>
 					</ul>
 					<div class="cart box_1">
 						<a href="#" onclick="getCart()">						
