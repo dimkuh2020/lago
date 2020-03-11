@@ -16,10 +16,10 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
     <div class="container">
         <div class="site-signup">
-            <h1><?= Html::encode($this->title) ?></h1>
-
-            <p>Пожалуйста, заполните следующие поля:</p>
-
+            <h1 style="margin-left: 10%;"><?= Html::encode($this->title) ?></h1>
+            <br>
+            <br>
+            
             <?php $form = ActiveForm::begin([
                 'id' => 'signup-form',
                 'layout' => 'horizontal',

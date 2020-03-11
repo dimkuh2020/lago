@@ -43,6 +43,9 @@ AppAsset::register($this);
 			</div>
 			<div class="header-left">		
 					<ul>
+					<?php if(Yii::$app->user->identity->email == 'admin@lago.net'):?>
+						<li><a type="button" class ="btn btn-success" href="<?=Url::to(['/admin'])?>">Админка</a></li>
+					<?php endif;?>
 					<?php if(Yii::$app->user->isGuest):?>
 						<li ><a href="<?=Url::to(['/site/login'])?>"  >Вход</a></li>
 					<?php endif;?>	
