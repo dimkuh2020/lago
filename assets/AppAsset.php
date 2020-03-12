@@ -23,7 +23,8 @@ class AppAsset extends AssetBundle
         //'css/bootstrap.css',
         'css/flexslider.css',
         'css/memenu.css',
-        'css/style.css',               
+        'css/style.css', 
+        'css/404.css',              
         //'css/site.css',
     ];
 
