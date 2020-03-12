@@ -36,21 +36,21 @@ AppAsset::register($this);
 	<div class="header-top">
 		<div class="container">
 			<div class="search">
-					<form>
-						<input type="text" value="Search " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-						<input type="submit" value="Go">
+					<form action="<?=Url::to(['category/search'])?>" method="get">
+						<input type="text" placeholder="Поиск" name="q">
+						<input type="submit" value="Найти">
 					</form>
 			</div>
 			<div class="header-left">		
 					<ul>
 					<?php if(Yii::$app->user->identity->email == 'admin@lago.net'):?>
-						<li><a type="button" class ="btn btn-success" href="<?=Url::to(['/admin'])?>">Админка</a></li>
+						<li><a type="button" style="margin-bottom: -15px; margin-top: -15px;" class ="btn btn-success" href="<?=Url::to(['/admin'])?>">Админка</a></li>
 					<?php endif;?>
 					<?php if(Yii::$app->user->isGuest):?>
 						<li ><a href="<?=Url::to(['/site/login'])?>"  >Вход</a></li>
 					<?php endif;?>	
 					<?php if(!Yii::$app->user->isGuest):?> <!--показываем сылку на выход если не гость-->
-						<li><a href="<?=\yii\helpers\Url::to(['/site/logout'])?>"><?=Yii::$app->user->identity['name']?> (Выход)</a></li>
+						<li><a href="<?=Url::to(['/site/logout'])?>"><?=Yii::$app->user->identity['name']?> (Выход)</a></li>
 					<?php endif;?>
 					<?php if(Yii::$app->user->isGuest):?>
 						<li><a  href="<?=Url::to(['/site/signup'])?>"  >Регистрация</a></li>

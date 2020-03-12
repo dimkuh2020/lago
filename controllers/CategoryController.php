@@ -47,9 +47,9 @@
 
     }
 
-    /*public function actionSearch(){
+    public function actionSearch(){
         $q = trim(Yii::$app->request->get('q')); // запрос с вью
-        $this->setMeta('E-SHOPPER | ' . $q); // для метатегов
+        $this->setMeta('LaGo | ' . $q); // для метатегов
         if(!$q) return $this->render('search');  // для исключение пробелов в поиске trim вверху Для q
         
         $query = Product::find()->where(['like', 'name', $q]); // найти в имени (талб) значение q 
@@ -59,7 +59,7 @@
         return $this->render('search', compact('products', 'pages', 'q'));
 
 
-    }*/
+    }
 
  }
 

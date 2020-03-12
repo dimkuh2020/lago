@@ -33,6 +33,7 @@ class ProductController extends AppController{
 
         return $this->render('view', compact('product'));
     }
+   
 
 }
 
