@@ -1,6 +1,9 @@
 <?php
 use yii\helpers\Html; // подкл хелпер для картинок и т.д.
 use yii\helpers\Url;
+use yii\bootstrap\Modal;
+use yii\widgets\ActiveForm;
+
 /* @var $this yii\web\View */
 ?>
 
@@ -47,7 +50,11 @@ use yii\helpers\Url;
                             <h5 class="item_price"><?=$product->price?> грн.</h5>
                             <div style="text-align: left">
                                 <p><?=$product->content?></p>
-                                <p><b>В наличии: </b>Да</p>                            
+                                <?php if($product->quantity > 0):?>
+                                    <p><b>В наличии: </b>Да</p>
+                                <?php else:?>
+                                    <p><b>В наличии: </b>Нет</p>  
+                                <?php endif;?>                          
                                 <p><b>Категоря:</b><a href="<?=Url::to(['category/view', 'id' => $product->category->id])?>"> <?=$product->category->name?></a></p> 
                                 <span>                                
                                     <label>Количество:</label>
@@ -80,37 +87,40 @@ use yii\helpers\Url;
                                         <p>Норм деревяшкэ</p>
                                     </div>
                                     <div class="clearfix"> </div>
-                                    <a class="add-re" href="#">ДОБАВИТЬ ОТЗЫВ</a>
+                                    <a class="add-re" href="#" onclick="getComment()">ДОБАВИТЬ ОТЗЫВ</a>                                    
                                 </div>      
                             </li>
                             <div class="clearfix"></div>
 	                    </ul> 
                     </div> 
 		            <div class=" bottom-product">
+                        <?php foreach($bottomresult as $res):?>
                         <div class="col-md-4 bottom-cd simpleCart_shelfItem">
                             <div class="product-at ">
-                                <a href="#"><img class="img-responsive" src="/images/pi3.jpg" alt=""></a>	
+                                <a href="<?=Url::to(['product/view', 'id' => $res->id])?>"><?=Html::img("@web/images/products/{$res->img}",['class' => 'prodpics'], ['alt' => $res->name])?></a>	
                             </div>
-                            <p class="tun">It is a long established fact that a reader</p>
-                            <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>						
+                            <p class="tun"><?=$res->name?></p>
+                            <a href="<?=Url::to(['cart/add', 'id'=> $res->id])?>" data-id="<?=$res->id?>" class="item_add"><p class="number item_price"><i> </i><?=$res->price?></p></a>
                         </div>
-					    <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                            <div class="product-at ">
-                                <a href="#"><img class="img-responsive" src="/images/pi3.jpg" alt=""></a>	
-                            </div>
-                            <p class="tun">It is a long established fact that a reader</p>
-                            <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>						
-                        </div>
-                        <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                            <div class="product-at ">
-                                <a href="#"><img class="img-responsive" src="/images/pi3.jpg" alt=""></a>	
-                            </div>
-                            <p class="tun">It is a long established fact that a reader</p>
-                            <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>						
-                        </div>
-					    <div class="clearfix"> </div>
+                        <?php endforeach;?>
+                        <div class="clearfix"> </div>
 				    </div>
-                </div>
+                </div> 
 		        <div class="clearfix"> </div>
 		    </div>
 		</div>
+
+<?php
+    Modal::begin([
+        'header' => '<h2>' . $user .'</h2>',
+        'id' => 'comment',
+        'size' => 'modal-sm', 
+    ]);
+?>
+<?php $form = ActiveForm::begin(['id' => 'Comment'])?>
+      <div>
+        <?= $form->field($comment, 'comment')->textarea(['style' => 'height: 120px; width: 100%; resize: none;'])?>
+      </div> 
+      <?= Html::submitButton('Добавить отзыв', ['class' => 'btn btn-success'])?>
+<?php ActiveForm::end();?>
+<?php Modal::end();?>

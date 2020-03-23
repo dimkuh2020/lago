@@ -35,6 +35,7 @@ class AppAsset extends AssetBundle
         'js/memenu.js',
         'js/responsiveslides.min.js',
         'js/cart.js',
+        'js/comment.js',
         //'js/simpleCart.min.js',         
     ];
     public $depends = [

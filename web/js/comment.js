@@ -1,0 +1,3 @@
+function getComment(){
+    $('#comment').modal();
+}
