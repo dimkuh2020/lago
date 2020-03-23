@@ -116,4 +116,8 @@ class User extends ActiveRecord implements IdentityInterface //через GII
     {
         return \Yii::$app->security->validatePassword($password, $this->password); //для хеша
     }
+
+    public function getComments(){ //для связи с comments
+        return $this->hasMany(Comment::className(), ['user_id' => 'id']);
+    }
 }

@@ -14,7 +14,11 @@ class Product extends ActiveRecord{
     }
 
     public function getTheme(){
-        return $this->hasOne(Category::className(), ['id' => 'theme_id']);
+        return $this->hasOne(Category::className(), ['id' => 'theme_id']); //Category???
+    }
+
+    public function getComments(){ //для связи с comments
+        return $this->hasMany(Comment::className(), ['product_id' => 'id']);
     }
 
 
