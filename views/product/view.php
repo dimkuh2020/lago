@@ -75,17 +75,12 @@ use yii\widgets\ActiveForm;
                             <li data-content="television" class="selected">
                                 <div class="comments-top-top">
                                     
+                                    <?php foreach($comment_result as $res):?>
                                     <div class="top-comment-right">
-                                        <h6><a href="#">Василий Пупкин</a> - September 3, 2014</h6>
-                                        <ul class="star-footer">
-                                            <li><a href="#"><i> </i></a></li>
-                                            <li><a href="#"><i> </i></a></li>
-                                            <li><a href="#"><i> </i></a></li>
-                                            <li><a href="#"><i> </i></a></li>
-                                            <li><a href="#"><i> </i></a></li>
-                                        </ul>
-                                        <p>Норм деревяшкэ</p>
+                                        <h6><a href="#"><?=$res->user?></a> <?=$res->date?></h6>                                        
+                                        <p><?=$res->comment?></p>
                                     </div>
+                                    <?php endforeach;?>
                                     <div class="clearfix"> </div>
                                     <a class="add-re" href="#" onclick="getComment()">ДОБАВИТЬ ОТЗЫВ</a>                                    
                                 </div>      

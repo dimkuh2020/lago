@@ -51,12 +51,14 @@ class ProductController extends AppController{
             $comment->rate = 10; 
             $comment->save();
 
-            /*if($comment->save()){
-                return $this->goHome();
-            }*/
+            if($comment->save()){
+                return $this->refresh();
+            }
         }
 
-        return $this->render('view', compact('product', 'bottomresult', 'user', 'comment'));
+        $comment_result = Comment::find()->with('product')->where(['product_id' => $id])->all();
+
+        return $this->render('view', compact('product', 'bottomresult', 'user', 'comment','comment_result'));
     }
    
 }
