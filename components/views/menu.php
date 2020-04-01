@@ -8,7 +8,7 @@
             <div class=" h_menu4">
                     <ul class="memenu skyblue">
                         <li class="active grid"><a class="color8" href="/">Главная</a></li>	
-                        <li><a class="color1" href="<?=Url::to(['product/index'])?>">Все товары</a></li>
+                        <li><a class="color1" href="<?=Url::to(['//product/index'])?>">Все товары</a></li>
                         <li class="grid"><a class="color2" href="#">Категории товаров</a>
                         <div class="mepanel">
                             <div class="row">
@@ -17,7 +17,7 @@
                                         <h4>Товары по виду</h4>
                                         <ul>
                                             <?php foreach($categories as $category): ?>
-                                                <li><a href="<?=Url::to(['category/view', 'id' => $category['id']])?>">
+                                                <li><a href="<?=Url::to(['//category/view', 'id' => $category['id']])?>">
                                                     <?=$category['name'];?></a>
                                                 </li>
                                             <?php endforeach;?>												
@@ -29,7 +29,7 @@
                                     <h4>Товары по теме</h4>
                                         <ul>
                                             <?php foreach($themes as $theme): ?>
-                                            <li><a href="<?=Url::to(['theme/view', 'id' => $theme['id']])?>">
+                                            <li><a href="<?=Url::to(['//theme/view', 'id' => $theme['id']])?>">
                                                     <?=$theme['name'];?></a>
                                                 </li>
                                             <?php endforeach;?>												
