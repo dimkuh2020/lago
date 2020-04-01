@@ -13,6 +13,12 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'defaultRoute' => 'order/index',            
+        ],        
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -34,7 +40,7 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => false, //false если реальное письмо, true - без отправки письма
+            'useFileTransport' => true, //false если реальное письмо, true - без отправки письма
             'transport' => [ // настройки почты
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.ukr.net', //@хост
@@ -62,7 +68,8 @@ $config = [
                 'category/<id:\d+>/page/<page:\d+>' => 'category/view', //ЧПУ для пагинации (ставим перед правилом для категорий)
                 'category/<id:\d+>' => 'category/view', // Показ цифру id после категории
                 'product/<id:\d+>' => 'product/view',
-                'search' => 'category/search', 
+                'search' => 'category/search',
+                //'admin' => 'admin/default/index', 
 
             ],
         ],       

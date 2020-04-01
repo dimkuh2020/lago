@@ -9,8 +9,7 @@ use yii\helpers\Url; // подкл хелпер для картинок и т.д
 
 $this->title = 'LaGo';
 ?>
-	</div>
-		<?=\app\components\MenuWidget::widget(['tpl' => 'menu'])?>
+	
 	<div class="banner">
 		<div class="container">			   
 			<div  id="top" class="callbacks_container">

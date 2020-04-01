@@ -11,9 +11,7 @@ $this->title = 'Вход у учётную запись';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-</div>
-	<?=\app\components\MenuWidget::widget(['tpl' => 'menu'])?>
-	</div>
+
     <div class="container">
         <div class="site-login">
             <h1><?= Html::encode($this->title) ?></h1>

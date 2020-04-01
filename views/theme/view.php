@@ -4,9 +4,7 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 ?>
 
-</div>
-	<?=\app\components\MenuWidget::widget(['tpl' => 'menu'])?>
-	</div>
+
 		<div class="product">
 			<div class="container">
 				<div class="col-md-3 product-price">                      

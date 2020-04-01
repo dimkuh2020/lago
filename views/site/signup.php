@@ -11,9 +11,7 @@ use yii\widgets\MaskedInput;
 $this->title = 'Регистрация';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-</div>
-	<?=\app\components\MenuWidget::widget(['tpl' => 'menu'])?>
-	</div>
+
     <div class="container">
         <div class="site-signup">
             <h1 style="margin-left: 10%;"><?= Html::encode($this->title) ?></h1>

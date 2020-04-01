@@ -6,9 +6,7 @@ use yii\widgets\MaskedInput;
 
 ?>
 
-</div>
-	<?=\app\components\MenuWidget::widget(['tpl' => 'menu'])?>
-</div>
+
 <div class="container">
 <!--вывод флеш-сообщений-->
     <?php if( Yii::$app->session->hasFlash('success') ): ?>

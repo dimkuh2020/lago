@@ -10,9 +10,7 @@ use yii\helpers\Url;
 
 $this->title = "404";
 ?>
-</div>
-	<?=\app\components\MenuWidget::widget(['tpl' => 'menu'])?>
-	</div>
+
     <div class="container">
         <div id="notfound">
             <div class="notfound">

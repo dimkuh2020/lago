@@ -56,6 +56,7 @@ AppAsset::register($this);
 						<li><a  href="<?=Url::to(['/site/signup'])?>"  >Регистрация</a></li>
 					<?php endif;?>
 					</ul>
+					<?php if(Yii::$app->user->identity->email != 'admin@lago.net'):?>
 					<div class="cart box_1">
 						<a href="#" onclick="getCart()">						
 						<h3>
@@ -66,10 +67,16 @@ AppAsset::register($this);
 						</h3>
 						</a>						
 					</div>
+					<?php endif;?>
 					<div class="clearfix"> </div>
 			</div>
 				    <div class="clearfix"> </div>
-		    </div>	
+		    </div>
+		</div>
+		<?=\app\components\MenuWidget::widget(['tpl' => 'menu'])?>
+	</div>
+    <br>
+    <br>		
 
     <?=$content?>
 

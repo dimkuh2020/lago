@@ -108,7 +108,9 @@ h1,h2,h3,h4,h5,h6,label,p{
 	border-radius: 50%;
 	margin-bottom: 3px;
 }
-
+.order-update{
+	display: none;
+}
 
 .itemContainer{
 			width:100%;
