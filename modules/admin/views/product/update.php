@@ -2,18 +2,16 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Order */
+/* @var $model app\modules\admin\models\Product */
 
-$this->title = 'Ред. заказ №: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->title = 'Ред. продукт: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 
-<br>
-<div class="order-update">
+<div class="product-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

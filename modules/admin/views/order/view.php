@@ -15,18 +15,21 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <br>
-    <br>
+    
 
     <div class="container">
         <div class="row" style="text-align: center;">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a type="button" style="width: 130px; margin-bottom: 20px" class ="btn btn-primary" href="<?=Url::to(['/admin/product/index'])?>">Товары</a>
             </div>
-            <div class="col-md-4">
-            <a type="button" style="width: 130px; margin-bottom: 20px" class ="btn btn-primary" href="<?=Url::to(['/admin/category/index'])?>">Категории</a>
+            <div class="col-md-3">
+                <a type="button" style="width: 130px; margin-bottom: 20px" class ="btn btn-primary" href="<?=Url::to(['/admin/category/index'])?>">Категории</a>
             </div>
-            <div class="col-md-4">
-            <a type="button" style="width: 130px; margin-bottom: 20px" class ="btn btn-primary" href="<?=Url::to(['/admin'])?>">Заказы</a>
+            <div class="col-md-3">
+                <a type="button" style="width: 130px; margin-bottom: 20px" class ="btn btn-primary" href="<?=Url::to(['/admin/theme/index'])?>">Темы</a>
+            </div>
+            <div class="col-md-3">
+                <a type="button" style="width: 130px; margin-bottom: 20px" class ="btn btn-primary" href="<?=Url::to(['/admin'])?>">Заказы</a>
             </div>
         </div>
     </div>
