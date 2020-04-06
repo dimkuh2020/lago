@@ -3,8 +3,9 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
+
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Order */
+/* @var $model app\modules\admin\models\Theme */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 </div>
@@ -25,36 +26,21 @@ use yii\helpers\Url;
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="order-form">
+<div class="container">
+    <div class="theme-form">
 
-            <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(); ?>
 
-            <?= $form->field($model, 'created_at')->textInput() ?>
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'updated_at')->textInput() ?>
+        <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'qty')->textInput() ?>
+        <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'sum')->textInput() ?>
-
-            <?= $form->field($model, 'status')->dropDownList([ '0' => 'Активен', '1' => 'Завершён']) ?>
-
-            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-            <?= $form->field($model, 'surname')->textInput(['maxlength' => true]) ?>
-
-            <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
-            <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
-
-            <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
-
-            <div class="form-group">
-                <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
-            </div>
-
-            <?php ActiveForm::end(); ?>
-
+        <div class="form-group">
+            <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
         </div>
+
+        <?php ActiveForm::end(); ?>
     </div>
+</div>
