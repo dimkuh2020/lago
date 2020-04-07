@@ -32,7 +32,7 @@ class Theme extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'keywords', 'description'], 'required'],
+            [['name'], 'required'],
             [['name', 'keywords', 'description'], 'string', 'max' => 255],
         ];
     }

@@ -4,10 +4,12 @@ namespace app\modules\admin\controllers;
 
 use Yii;
 use app\modules\admin\models\Category;
+use app\modules\admin\models\UploadImage;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -65,13 +67,22 @@ class CategoryController extends Controller
     public function actionCreate()
     {
         $model = new Category();
+        $model1 = new UploadImage(); // для нового поля для загрузки картинки
+
+        $model1->image = UploadedFile::getInstance($model1, 'image');   // добавляем модель для загрузки картинки
+        $model1->upload();                                              // 
+        
+        if($model1->image != null){
+            $model->img = $model1->image->baseName . '.' . $model1->image->extension;
+            $model->save();
+        } 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model, 'model1' => $model1,
         ]);
     }
 
@@ -85,13 +96,23 @@ class CategoryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model1 = new UploadImage(); // для нового поля для загрузки картинки
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $model1->image = UploadedFile::getInstance($model1, 'image');   // добавляем модель для загрузки картинки
+        $model1->upload();                                              // 
+        
+        if($model1->image != null){
+            $model->img = $model1->image->baseName . '.' . $model1->image->extension;
+            $model->save();
+        } 
+
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) { 
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
-            'model' => $model,
+            'model' => $model, 'model1' => $model1
         ]);
     }
 

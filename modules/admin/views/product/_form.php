@@ -42,9 +42,9 @@ use yii\helpers\Url;
 
         <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>       
 
-        <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model1, 'image')->fileInput() // тут поле для загрузки картинки из другой модели?>
 
         <?= $form->field($model, 'hit')->dropDownList([ '0' => 'Нет', '1' => 'Да'])?>
 
