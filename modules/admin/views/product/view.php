@@ -56,7 +56,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'price',
                 'keywords',
                 'description',
-                'img',
+                [
+                    'attribute' => 'img',
+                    'format' => 'html',
+                    //'label' => 'Image',
+                    'value' => function ($data) { // показ картинки
+                               return Html::img('/images/products/' . $data->img,
+                               ['width' => '150px',
+                                'height' => '150px']);
+                              },
+                ],
                 [
                     'attribute' => 'hit', 
                     'value' => function($data){

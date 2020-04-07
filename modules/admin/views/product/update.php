@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = 'Update';
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' => $model, 'model1' => $model1, // + model1 для вывода дополнительного поля в gridview
     ]) ?>
 
 </div>

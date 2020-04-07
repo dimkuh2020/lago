@@ -4,10 +4,12 @@ namespace app\modules\admin\controllers;
 
 use Yii;
 use app\modules\admin\models\Product;
+use app\modules\admin\models\UploadImage;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -73,13 +75,23 @@ class ProductController extends Controller
     public function actionCreate()
     {
         $model = new Product();
+        $model1 = new UploadImage(); // для нового поля для загрузки картинки
+
+        $model1->image = UploadedFile::getInstance($model1, 'image');   // добавляем модель для загрузки картинки
+        $model1->upload();                                              // 
+        
+        if($model1->image != null){
+            $model->img = $model1->image->baseName . '.' . $model1->image->extension;
+            $model->save();
+        }     
+        
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model, 'model1' => $model1,
         ]);
     }
 
@@ -93,13 +105,25 @@ class ProductController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model1 = new UploadImage(); // для нового поля для загрузки картинки
 
+        $model1->image = UploadedFile::getInstance($model1, 'image');   // добавляем модель для загрузки картинки
+        $model1->upload();                                              // 
+        
+        if($model1->image != null){
+            $model->img = $model1->image->baseName . '.' . $model1->image->extension;
+            $model->save();
+        }            
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        
+
         return $this->render('update', [
-            'model' => $model,
+            'model' => $model, 'model1' => $model1
         ]);
     }
 
