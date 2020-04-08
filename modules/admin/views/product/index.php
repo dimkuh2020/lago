@@ -40,8 +40,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'columns' => [ 
                 'id',
-                'category_id',
-                'theme_id',
+                [
+                    'attribute' => 'category_id',
+                    'value' => function($data){ //категории вместо номеров
+                        return $data->category->name;
+                    } 
+                ],
+                [
+                    'attribute' => 'theme_id',
+                    'value' => function($data){ //категории вместо номеров
+                        return $data->theme->name;
+                    } 
+                ],
                 'name',
                 'content:ntext',
                 'price',

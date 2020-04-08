@@ -37,6 +37,7 @@ use yii\helpers\Url;
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model1, 'image')->fileInput() // тут поле для загрузки картинки из другой модели?>
+    <p>пссс, админ, картинку добавлять обязательно при создании новой категории.</p>
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>

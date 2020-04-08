@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
-                    'confirm' => 'Are you sure you want to delete this item?',
+                    'confirm' => 'Удалить этот товар?',
                     'method' => 'post',
                 ],
             ]) ?>
@@ -49,8 +49,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'model' => $model,
             'attributes' => [
                 'id',
-                'category_id',
-                'theme_id',
+                [
+                    'attribute' => 'category_id',
+                    'value' => function($data){ //категории вместо номеров
+                        return $data->category->name;
+                    } 
+                ],
+                [
+                    'attribute' => 'theme_id',
+                    'value' => function($data){ //категории вместо номеров
+                        return $data->theme->name;
+                    } 
+                ],
                 'name',
                 'content:ntext',
                 'price',

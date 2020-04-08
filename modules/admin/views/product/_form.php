@@ -1,8 +1,12 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
+use app\modules\admin\models\Theme;
+use app\modules\admin\models\Category;
+
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
 /* @var $form yii\widgets\ActiveForm */
@@ -25,14 +29,17 @@ use yii\helpers\Url;
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="product-form">
+        <?php $category = Category::find()->all();?> <!--вытягиваем данные по категориям для выпадающего списка формы-->
+        <?php $theme = Theme::find()->all();?> <!--вытягиваем данные по темам для выпадающего списка формы-->
 
-        <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(); ?> 
 
-        <?= $form->field($model, 'category_id')->textInput() ?>
+        <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($category, 'id','name')); ?> 
 
-        <?= $form->field($model, 'theme_id')->textInput() ?>
+        <?= $form->field($model, 'theme_id')->dropDownList(ArrayHelper::map($theme, 'id','name')); ?>
 
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -45,6 +52,7 @@ use yii\helpers\Url;
         <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>       
 
         <?= $form->field($model1, 'image')->fileInput() // тут поле для загрузки картинки из другой модели?>
+        <p>пссс, админ, картинку добавлять обязательно при создании новоого товара.</p>
 
         <?= $form->field($model, 'hit')->dropDownList([ '0' => 'Нет', '1' => 'Да'])?>
 

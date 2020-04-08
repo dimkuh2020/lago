@@ -17,7 +17,7 @@ use yii\helpers\Url;
                                 <a href="single.html"><img class="img-responsive " src="/images/p1.jpg" alt=""></a>
                             </div>
                             <div class=" fashion-grid1">
-                                <h6 class="best2"><a href="single.html">тут кидаеи всякую рекламу по выбранной категории</a></h6>                    
+                                <h6 class="best2"><a href="single.html">тут кидаем всякую рекламу по выбранной категории</a></h6>                    
                                 <span class=" price-in1"> $40.00</span>
                             </div>                    
                             <div class="clearfix"></div>
@@ -32,8 +32,7 @@ use yii\helpers\Url;
                             </div>
                             <div class="clearfix"></div>
                         </div> 
-                    </div>
-                   тут создать виджет по слайдеру цены-->                        
+                    </div>                                        
                 </div>
         <div class="col-md-9 product1">
             <div class="bottom-product">
