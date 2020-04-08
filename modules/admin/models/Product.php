@@ -45,7 +45,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'theme_id', 'name', 'quantity'], 'required'],
+            [['category_id', 'theme_id', 'name', 'price','content','quantity'], 'required'],
             [['category_id', 'theme_id', 'quantity'], 'integer'],
             [['content', 'hit', 'new', 'sale'], 'string'],
             [['price'], 'number'],
