@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 10 2020 г., 00:53
+-- Время создания: Апр 09 2020 г., 21:47
 -- Версия сервера: 5.7.25
 -- Версия PHP: 7.3.9
 
@@ -53,6 +53,21 @@ INSERT INTO `category` (`id`, `name`, `keywords`, `description`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rate` int(11) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `order`
 --
 
@@ -75,8 +90,13 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`id`, `created_at`, `updated_at`, `qty`, `sum`, `status`, `name`, `surname`, `email`, `phone`, `address`) VALUES
-(1, '2020-02-27 13:46:07', '2020-02-27 13:46:07', 1, 55.5, '0', 'Дима', 'Пупкин', 'dimkuh1985@gmail.com', '+38(011)646-54-56', ''),
-(2, '2020-02-27 15:56:04', '2020-02-27 15:56:04', 1, 55.5, '0', 'Дима', 'Пупкин', 'dimkuh1985@gmail.com', '+38(045)454-54-44', 'adressssss');
+(3, '2020-03-23 16:26:00', '2020-03-23 16:26:00', 39, 2297.7, '0', 'Пупкин', 'Пупкин', 'dimkuh1985@gmail.com', '+38(034)242-42-42', ''),
+(4, '2020-04-01 00:04:38', '2020-04-01 00:04:38', 6, 301228, '1', 'Сашка', 'Бородач', 'borod@ukr.net', '+38(077)777-77-7_', 'Киев троещина'),
+(6, '2020-04-01 17:44:41', '2020-04-01 17:44:41', 3, 235.99, '1', 'Димасzzz', 'Бородач', 'Pupuk@ukr.net', '+38(087)878-78-78', 'qydqydgqdyqydgqdqdgvdhjdvgajhdvahjdvahjdvaj'),
+(7, '2020-04-01 17:45:17', '2020-04-01 17:45:17', 12, 1206, '0', 'Сашка', 'Пупкин', 'borod@ukr.net', '+38(078)787-45-45', ''),
+(8, '2020-04-01 17:46:00', '2020-04-01 17:46:00', 4, 20, '0', 'Пупкин', 'Пупкин', 'Pupuk@ukr.net', '+38(087)875-45-45', 'qwerty1234'),
+(9, '2020-04-01 17:47:52', '2020-04-01 17:47:52', 1001, 5055.5, '0', 'admin', 'admin', 'admin@admin.admin', '+38(078)787-87-87', 'LOL'),
+(10, '2020-04-01 22:08:53', '2020-04-01 22:08:53', 2, 159.89, '0', 'Димка', 'Яценюк', 'dim@dim.com', '+38(015)121-35-41', '');
 
 -- --------------------------------------------------------
 
@@ -99,7 +119,21 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `name`, `price`, `qty_item`, `sum_item`) VALUES
-(1, 2, 2, 'Подставка \"Тигр\"', 55.5, 1, 55.5);
+(1, 2, 2, 'Подставка \"Тигр\"', 55.5, 1, 55.5),
+(2, 3, 2, 'Подставка \"Тигр\"', 55.5, 36, 1998),
+(3, 3, 4, 'Надписи на подарки', 99.9, 3, 299.7),
+(4, 4, 2, 'Подставка \"Тигр\"', 55.5, 3, 166.5),
+(5, 4, 8, 'Подставка \"Майнкрафт\"', 150501, 2, 301002),
+(6, 4, 7, 'Подставка \"Заяц\"', 59.99, 1, 59.99),
+(8, 6, 2, 'Подставка \"Тигр\"', 55.5, 1, 55.5),
+(9, 6, 7, 'Подставка \"Заяц\"', 59.99, 1, 59.99),
+(10, 6, 12, 'Подставка \"Цветочек\"', 120.5, 1, 120.5),
+(11, 7, 1, 'Подставка \"Янукович\"', 100.5, 12, 1206),
+(12, 8, 3, 'Рахывныца', 5, 4, 20),
+(13, 9, 2, 'Подставка \"Тигр\"', 55.5, 1, 55.5),
+(14, 9, 3, 'Рахывныца', 5, 1000, 5000),
+(15, 10, 4, 'Надписи на подарки', 99.9, 1, 99.9),
+(16, 10, 7, 'Подставка \"Заяц\"', 59.99, 1, 59.99);
 
 -- --------------------------------------------------------
 
@@ -119,24 +153,25 @@ CREATE TABLE `product` (
   `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'no-image.png',
   `hit` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `new` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `sale` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0'
+  `sale` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `product`
 --
 
-INSERT INTO `product` (`id`, `category_id`, `theme_id`, `name`, `content`, `price`, `keywords`, `description`, `img`, `hit`, `new`, `sale`) VALUES
-(1, 1, 1, 'Подставка \"Янукович\"', 'Крутая подставка с ликом бывшего лигитимного проффессора', '100.50', NULL, NULL, 'no-image.png', '0', '0', '0'),
-(2, 1, 4, 'Подставка \"Тигр\"', 'Почти как настоящий.', '55.50', NULL, NULL, 'tel_tiger.jpg', '0', '0', '0'),
-(3, 2, 2, 'Рахывныца', 'Счёты для детей для развития', '5.00', NULL, NULL, 'count_count.jpg', '0', '0', '0'),
-(4, 3, 3, 'Надписи на подарки', 'Маленькие надписи со сроком годности подарков(возврату и обмену не подлежат).', '99.90', NULL, NULL, 'label_items.jpg', '0', '0', '0'),
-(7, 1, 4, 'Подставка \"Заяц\"', 'Хороший зайка для мобилки', '59.99', NULL, NULL, 'tel_hare.jpg', '0', '0', '0'),
-(8, 1, 2, 'Подставка \"Майнкрафт\"', 'Родители будут рады что их ребёнок теперь не сидит за игрой Майнкрафт, а просто втыкает в деревяшку', '150501.00', NULL, NULL, 'tel_minecraft.jpg', '0', '0', '0'),
-(9, 1, 4, 'Подставка \"Бобёр\"', 'видишь бобра? я тоже не вижу, а он есть ', '1000.10', NULL, NULL, 'no-image.png', '0', '0', '0'),
-(10, 3, 4, 'Надписи для животных', 'Можно подписать весь зоопарк', '52.52', NULL, NULL, 'no-image.png', '0', '0', '0'),
-(11, 6, 8, 'Коробка с любовью', '...возможно сопутствующие сюрпризы', '500.00', NULL, NULL, 'pres_lovekorobka.jpg', '0', '1', '0'),
-(12, 1, 5, 'Подставка \"Цветочек\"', 'не вянет, радует глаз, можно в топку если холодно.', '120.50', NULL, NULL, 'tel_flower.jpg', '1', '0', '0');
+INSERT INTO `product` (`id`, `category_id`, `theme_id`, `name`, `content`, `price`, `keywords`, `description`, `img`, `hit`, `new`, `sale`, `quantity`) VALUES
+(1, 1, 1, 'Подставка \"Янукович\"', 'Крутая подставка с ликом бывшего лигитимного проффессораа', '100.50', '', '', 'no-image.png', '1', '0', '1', 50),
+(2, 1, 4, 'Подставка \"Тигр\"', 'Почти как настоящий.', '55.50', NULL, NULL, 'tel_tiger.jpg', '0', '0', '0', 0),
+(3, 2, 2, 'Рахывныца', 'Счёты для детей для развития', '5.00', NULL, NULL, 'count_count.jpg', '0', '0', '0', 58),
+(4, 3, 3, 'Надписи на подарки', 'Маленькие надписи со сроком годности подарков(возврату и обмену не подлежат).', '99.90', NULL, NULL, 'label_items.jpg', '0', '0', '0', 12),
+(7, 1, 4, 'Подставка \"Заяц\"', 'Хороший зайка для мобилки', '59.99', NULL, NULL, 'tel_hare.jpg', '0', '0', '0', 3),
+(8, 1, 2, 'Подставка \"Майнкрафт\"', 'Родители будут рады что их ребёнок теперь не сидит за игрой Майнкрафт, а просто втыкает в деревяшку', '150501.00', NULL, NULL, 'tel_minecraft.jpg', '0', '0', '0', 11),
+(9, 1, 4, 'Подставка \"Бобёр\"', 'видишь бобра? я тоже не вижу, а он есть ', '1000.10', NULL, NULL, 'no-image.png', '0', '0', '0', 0),
+(10, 3, 4, 'Надписи для животных', 'Можно подписать весь зоопарк', '52.52', NULL, NULL, 'no-image.png', '0', '0', '0', 56),
+(11, 6, 8, 'Коробка с любовью', '...возможно сопутствующие сюрпризы', '500.00', NULL, NULL, 'pres_lovekorobka.jpg', '0', '1', '0', 1),
+(12, 1, 5, 'Подставка \"Цветочек\"', 'не вянет, радует глаз, можно в топку если холодно.', '120.50', NULL, NULL, 'tel_flower.jpg', '1', '0', '0', 122);
 
 -- --------------------------------------------------------
 
@@ -188,9 +223,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `password`, `phone`, `email`, `auth_key`, `access_token`) VALUES
-(1, 'Василий', NULL, '$2y$13$KiGpmRLtjTE5jBOkXLgjfeBWiBDiqcWaHXw/l/k1C35EIBIyVpdJy', '+38(012)345-67-89', 'vasilPuo@pupkin.com', NULL, NULL),
-(2, 'Василий', NULL, '$2y$13$36fk1LOuIgNsR246qndOy.3uLjOlnJFQIEJbTgb2/cZmBLib.pdbK', '+38(084)784-84-84', 'vasilPuo@xn--pupkin-jtf.com', NULL, NULL),
-(3, 'ффф', 'Пупкин', '$2y$13$0rWP.ZmTGVUzB2tNasga0u1dBQDTlGJGPN4FexedlUeVsTXlVR.3O', '+38(056)566-46-46', 'vasi@pupkin.com', NULL, NULL);
+(4, 'test', 'ttt', '$2y$13$9F9UuXAs8P9MEqc06WWBa.tZjC8y4mSLlJn2zcEVKWYL9ScQU1UuO', '+38(078)884-84-84', 'test@test.com', NULL, NULL),
+(7, 'admin', 'admin', '$2y$13$qynjDDeOXATxgthJXL/3R.sTLLM.umYUOlmMAFDsSRnk8HC36QhL2', '+38(011)111-11-11', 'admin@lago.net', NULL, NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -200,6 +234,12 @@ INSERT INTO `users` (`id`, `name`, `surname`, `password`, `phone`, `email`, `aut
 -- Индексы таблицы `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -243,16 +283,22 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
 -- AUTO_INCREMENT для таблицы `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
@@ -270,7 +316,7 @@ ALTER TABLE `theme`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

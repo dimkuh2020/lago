@@ -42,7 +42,7 @@ class OrderController extends Controller
             ],
             'sort' => [
                 'defaultOrder' => [ //сортировка
-                    'status' => SORT_ASC
+                    'created_at' => SORT_DESC
                 ]
             ]
         ]);
