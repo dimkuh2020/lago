@@ -34,6 +34,7 @@ class AppAsset extends AssetBundle
         'js/main.js',
         'js/memenu.js',
         'js/responsiveslides.min.js',
+        'js/responsiveslides.js',
         'js/cart.js',
         'js/comment.js',
         //'js/simpleCart.min.js',         
