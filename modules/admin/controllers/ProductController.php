@@ -49,6 +49,9 @@ class ProductController extends Controller
             ]
         ]);
 
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
@@ -62,6 +65,9 @@ class ProductController extends Controller
      */
     public function actionView($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -74,6 +80,9 @@ class ProductController extends Controller
      */
     public function actionCreate()
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         $model = new Product();
         $model1 = new UploadImage(); // для нового поля для загрузки картинки
 
@@ -104,6 +113,9 @@ class ProductController extends Controller
      */
     public function actionUpdate($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         $model = $this->findModel($id);
         $model1 = new UploadImage(); // для нового поля для загрузки картинки
 
@@ -118,9 +130,7 @@ class ProductController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             
             return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        
+        }        
 
         return $this->render('update', [
             'model' => $model, 'model1' => $model1
@@ -136,6 +146,9 @@ class ProductController extends Controller
      */
     public function actionDelete($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+            
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

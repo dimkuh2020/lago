@@ -41,6 +41,9 @@ class CategoryController extends Controller
             'query' => Category::find(),
         ]);
 
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
@@ -54,6 +57,9 @@ class CategoryController extends Controller
      */
     public function actionView($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -66,6 +72,9 @@ class CategoryController extends Controller
      */
     public function actionCreate()
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         $model = new Category();
         $model1 = new UploadImage(); // для нового поля для загрузки картинки
 
@@ -95,6 +104,9 @@ class CategoryController extends Controller
      */
     public function actionUpdate($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         $model = $this->findModel($id);
         $model1 = new UploadImage(); // для нового поля для загрузки картинки
 
@@ -125,6 +137,9 @@ class CategoryController extends Controller
      */
     public function actionDelete($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+            
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

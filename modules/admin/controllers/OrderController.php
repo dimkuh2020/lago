@@ -47,9 +47,13 @@ class OrderController extends Controller
             ]
         ]);
 
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/'); 
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
+        
     }
 
     /**
@@ -60,28 +64,13 @@ class OrderController extends Controller
      */
     public function actionView($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+        $this->redirect('/'); 
+        
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
-
-    /**
-     * Creates a new Order model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Order();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
+    }  
 
     /**
      * Updates an existing Order model.
@@ -98,6 +87,9 @@ class OrderController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+        $this->redirect('/');
+
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -112,7 +104,11 @@ class OrderController extends Controller
      */
     public function actionDelete($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+        
         $this->findModel($id)->delete();
+
 
         return $this->redirect(['index']);
     }
