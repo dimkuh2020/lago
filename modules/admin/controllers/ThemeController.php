@@ -38,6 +38,9 @@ class ThemeController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Theme::find(),
         ]);
+        
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+        $this->redirect('/');
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -52,6 +55,9 @@ class ThemeController extends Controller
      */
     public function actionView($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -64,6 +70,9 @@ class ThemeController extends Controller
      */
     public function actionCreate()
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         $model = new Theme();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -84,6 +93,10 @@ class ThemeController extends Controller
      */
     public function actionUpdate($id)
     {
+
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -104,6 +117,9 @@ class ThemeController extends Controller
      */
     public function actionDelete($id)
     {
+        if(Yii::$app->user->identity->email != 'admin@lago.net') 
+            $this->redirect('/');
+            
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
